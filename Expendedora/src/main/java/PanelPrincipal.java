@@ -1,6 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Panel principal
+ */
 public class PanelPrincipal extends JPanel{
         JPanel panelMain = new JPanel();
         JLabel labelPH = new JLabel();

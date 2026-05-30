@@ -1,6 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Esqueleto de panel cliente parte integrante 2
+ */
 public class PanelComprador extends JPanel {
     JPanel panel1 = new JPanel();
     JPanel panel2 = new JPanel();
