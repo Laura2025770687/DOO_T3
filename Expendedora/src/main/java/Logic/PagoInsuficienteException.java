@@ -1,3 +1,4 @@
+package Logic;
 /**
  * Excepción que se lanza cuando el monto de la moneda ingresada
  * es menor al precio del producto solicitado.

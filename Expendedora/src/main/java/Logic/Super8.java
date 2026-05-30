@@ -1,3 +1,4 @@
+package Logic;
 /**
  * Representa al dulce con sabor Super8, extiende el funcionamiento de {@link Dulce}
  * y de {@link Producto}

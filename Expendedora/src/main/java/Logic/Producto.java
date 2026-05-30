@@ -1,3 +1,4 @@
+package Logic;
 /**
  * Representa un artículo cualquiera que puede ser almacenado y vendido por la máquina
  * expendedora, define el comportamiento base para los productos consumibles.

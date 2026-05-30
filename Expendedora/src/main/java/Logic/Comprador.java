@@ -1,3 +1,4 @@
+package Logic;
 /**
  * Representa un comprador cualquiera de producto para la máquina expendedora.
  */

@@ -1,4 +1,9 @@
+package Gui;
 import javax.swing.*;
+
+/**
+ * Ventana principal
+ */
 
 public class Ventana extends JFrame {
     public Ventana() {

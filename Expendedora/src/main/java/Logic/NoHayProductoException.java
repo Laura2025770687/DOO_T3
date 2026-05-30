@@ -1,3 +1,4 @@
+package Logic;
 /**
  * Excepción que se lanza si el numero del producto es incorrecto (no existe)
  * o no hay productos en el deposito

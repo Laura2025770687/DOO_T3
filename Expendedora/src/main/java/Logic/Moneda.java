@@ -1,3 +1,4 @@
+package Logic;
 /**
  * Representa a una moneda cualquiera usada para comprar un producto en la máquina
  * expendedora, define los comportamientos base de cualquier moneda.

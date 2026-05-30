@@ -1,3 +1,4 @@
+package Logic;
 /**
  * Representa a la bebida con sabor CocaCola, extiende el funcionamiento de {@link Bebida}
  * y de {@link Producto}

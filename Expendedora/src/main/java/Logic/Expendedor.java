@@ -1,3 +1,4 @@
+package Logic;
 /**
  * Representa una máquina expendedora que expende cinco clases productos
  * de dos tipos, bebidas y dulces.

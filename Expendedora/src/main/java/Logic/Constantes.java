@@ -1,3 +1,4 @@
+package Logic;
 /**
  * Representa el catálogo de productos para comprar en la máquina expendedora.
  * A cada artículo se le asigna un precio y un número para elegirlo en la máquina

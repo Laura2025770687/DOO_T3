@@ -1,3 +1,4 @@
+package Logic;
 /**
  * Representa a una moneda cuyo valor es de 1000. Extiende el funcionamiento de
  * {@link Moneda} para modelar los valores específicos de las monedas.

@@ -1,3 +1,4 @@
+package Gui;
 import javax.swing.*;
 import java.awt.*;
 
@@ -15,8 +16,8 @@ public class PanelPrincipal extends JPanel{
             this.add(panelMain);
 
             this.add(new PanelComprador());
-            GridLayout a = new GridLayout(); a.setHgap(200);
-            this.setLayout(new GridLayout(1,2));
+            GridLayout a = new GridLayout(1,2); a.setVgap(200);
+            this.setLayout(a);
 
             labelPH.setIcon(PlaceHolder);
             labelExp.setIcon(picExp);

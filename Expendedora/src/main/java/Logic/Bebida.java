@@ -1,3 +1,4 @@
+package Logic;
 /**
  * Representa un artículo líquido de la máquina expendedora. Extiende la función de
  * {@link Producto} para modelar un producto bebida.
