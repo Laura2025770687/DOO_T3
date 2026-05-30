@@ -1,5 +1,7 @@
+import javax.swing.*;
+
 public class main {
     public static void main() {
-        Cliente a = new Cliente();
+        JFrame a = new Ventana();
     }
 }
