@@ -1,5 +1,6 @@
 package Gui;
 import javax.swing.*;
+import java.awt.*;
 
 public class PanelExpPro extends JPanel {
     JButton Cocacola = new JButton();
@@ -10,8 +11,12 @@ public class PanelExpPro extends JPanel {
     JButton Vuelto = new JButton();
     JButton Producto = new JButton();
     public PanelExpPro(){
-        this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+        this.setSize(200,600);
+        this.setMaximumSize(new Dimension(200,600));
+        this.setLayout(new GridLayout(7,1));
+        this.setBackground(new Color(190,196,196));
         this.setBorder(BorderFactory.createEmptyBorder(20, 5, 20, 5));
+
         Cocacola.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/Cocacola.png")));
         Cocacola.setToolTipText("Comprar Cocacola");
         Sprite.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/Sprite.png")));
