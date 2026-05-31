@@ -13,6 +13,7 @@ public class Ventana extends JFrame {
         this.setName("Expendedor");
         this.setSize(1000,1000);
         this.setVisible(true);
+        this.setResizable(false);
     }
 
 }

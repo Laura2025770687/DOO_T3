@@ -6,29 +6,24 @@ import java.awt.*;
  * Panel principal
  */
 public class PanelPrincipal extends JPanel{
-        JPanel panelMain = new JPanel();
-        JLabel labelPH = new JLabel();
-        JLabel labelExp = new JLabel();
+        PanelExpendedor ExpP;
+        PanelComprador ComP;
         public PanelPrincipal() {
-            ImageIcon PlaceHolder = new ImageIcon("DOO_T3/Imagenes/PlaceHolder.gif");
-            ImageIcon picExp = new ImageIcon("DOO_T3/Imagenes/Expendedora.gif");
+            this.setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
 
-            this.add(panelMain);
+            this.ExpP = new PanelExpendedor();
+            ExpP.setMaximumSize(new Dimension(500,1000));
+            ExpP.setMinimumSize(new Dimension(500,1000));
+            this.add(ExpP);
 
-            this.add(new PanelComprador());
-            GridLayout a = new GridLayout(1,2); a.setVgap(200);
-            this.setLayout(a);
+            this.add(Box.createRigidArea(new Dimension(20,0)));
 
-            labelPH.setIcon(PlaceHolder);
-            labelExp.setIcon(picExp);
+            this.ComP = new PanelComprador();
+            ComP.setMaximumSize(new Dimension(500,1000));
+            ComP.setMinimumSize(new Dimension(500,1000));
+            this.add(ComP);
 
-            panelMain.setLayout(new GridLayout(3,1));
-            JPanel b = new JPanel(); b.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/PlaceHolder.gif")));
-            JPanel c = new JPanel(); c.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/PlaceHolder.gif")));
-            panelMain.add(b);
-            panelMain.add(new PanelExpendedor());
-            panelMain.add(c);
-
-            this.setVisible(true);
+            this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+            this.setBackground(new Color(180,198,220));
         }
 }
