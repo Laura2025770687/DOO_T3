@@ -2,7 +2,13 @@ package Gui;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Panel donde se guardan los botones
+ * Con un proxy los botones mandan la información al expendedor y
+ * al Cliente
+ */
 public class PanelExpPro extends JPanel {
+    JButton Monedas = new JButton();
     JButton Cocacola = new JButton();
     JButton Sprite = new JButton();
     JButton Fanta = new JButton();
@@ -10,27 +16,41 @@ public class PanelExpPro extends JPanel {
     JButton Super8 = new JButton();
     JButton Vuelto = new JButton();
     JButton Producto = new JButton();
-    public PanelExpPro(){
+    public PanelExpPro(ProxyExp Proxy){
         this.setSize(200,600);
         this.setMaximumSize(new Dimension(200,600));
-        this.setLayout(new GridLayout(7,1));
+        this.setLayout(new GridLayout(8,1));
         this.setBackground(new Color(190,196,196));
         this.setBorder(BorderFactory.createEmptyBorder(20, 5, 20, 5));
 
+        Monedas.add(new JLabel("Placeholder para monedas"));
         Cocacola.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/Cocacola.png")));
-        Cocacola.setToolTipText("Comprar Cocacola");
         Sprite.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/Sprite.png")));
-        Sprite.setToolTipText("Comprar Sprite");
         Fanta.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/Fanta.png")));
-        Fanta.setToolTipText("Comprar Fanta");
         Snickers.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/Snickers.png")));
-        Snickers.setToolTipText("Comprar Snickers");
         Super8.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/Super8.png")));
-        Super8.setToolTipText("Comprar Super8");
         Vuelto.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/Vuelto.png")));
-        Vuelto.setToolTipText("Sacar Vuelto");
         Producto.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/Producto.png")));
+
+        Monedas.setToolTipText("meter monedas");
+        Cocacola.setToolTipText("Comprar Cocacola");
+        Sprite.setToolTipText("Comprar Sprite");
+        Fanta.setToolTipText("Comprar Fanta");
+        Snickers.setToolTipText("Comprar Snickers");
+        Super8.setToolTipText("Comprar Super8");
+        Vuelto.setToolTipText("Sacar Vuelto");
         Producto.setToolTipText("Sacar Producto");
+
+        Monedas.addActionListener(new ClickBottonExp(0,Proxy));
+        Cocacola.addActionListener(new ClickBottonExp(1,Proxy));
+        Sprite.addActionListener(new ClickBottonExp(2,Proxy));
+        Fanta.addActionListener(new ClickBottonExp(3,Proxy));
+        Snickers.addActionListener(new ClickBottonExp(4,Proxy));
+        Super8.addActionListener(new ClickBottonExp(5,Proxy));
+        Vuelto.addActionListener(new ClickBottonExp(6,Proxy));
+        Producto.addActionListener(new ClickBottonExp(7,Proxy));
+
+        this.add(Monedas);
         this.add(Cocacola);
         this.add(Sprite);
         this.add(Fanta);

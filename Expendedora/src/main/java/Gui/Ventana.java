@@ -2,7 +2,7 @@ package Gui;
 import javax.swing.*;
 
 /**
- * Ventana principal
+ * Ventana la cual inicia los paneles
  */
 
 public class Ventana extends JFrame {
@@ -14,6 +14,7 @@ public class Ventana extends JFrame {
         this.setSize(1000,1000);
         this.setVisible(true);
         this.setResizable(false);
+
     }
 
 }

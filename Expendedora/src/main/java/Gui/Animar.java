@@ -3,7 +3,7 @@ package Gui;
 import java.awt.event.*;
 import javax.swing.Timer;
 
-
+// Por ahora sin usar (timer para animaciones)
 class Animar implements ActionListener { //misma interfaz que usan JButton y otros
     private Timer t;
 

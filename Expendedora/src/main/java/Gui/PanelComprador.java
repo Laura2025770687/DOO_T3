@@ -9,7 +9,7 @@ public class PanelComprador extends JPanel {
     JPanel panel1 = new JPanel();
     JPanel panel2 = new JPanel();
     JPanel panel3 = new JPanel();
-    public PanelComprador(){
+    public PanelComprador(ProxyExp Proxy){
         this.setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
         this.setMinimumSize(new Dimension(500,1000));
         panel1.setBackground(Color.green); panel1.add(new JLabel("Cliente 1"));
