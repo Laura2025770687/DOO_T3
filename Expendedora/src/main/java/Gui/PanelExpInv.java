@@ -16,13 +16,13 @@ public class PanelExpInv extends JPanel {
         Object[] Acesso = {"SI", "NO"};
         int ConAc = JOptionPane.showOptionDialog(null, "Tienes acceso a invertario?", "Acceso", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, Acesso, Acesso[0]);
     if (ConAc==0){
-        ImageIcon Placeholder = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/PlaceHolder.gif").getImage().getScaledInstance(480, 230, Image.SCALE_DEFAULT));
+        ImageIcon Placeholder = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/PlaceHolder.gif").getImage().getScaledInstance(500, 150, Image.SCALE_DEFAULT));
         JLabel Inventario = new JLabel(Placeholder);
         Inventario.setToolTipText("Inventario");
         this.add(Inventario);
     }
     else {
-        ImageIcon explow = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/explow.png").getImage().getScaledInstance(500, 140, Image.SCALE_DEFAULT));
+        ImageIcon explow = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/explow.png").getImage().getScaledInstance(500, 150, Image.SCALE_DEFAULT));
         this.add(new JLabel(explow));
     }
     }
