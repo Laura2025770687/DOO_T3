@@ -14,7 +14,7 @@ public class PanelExpVid extends JPanel {
         this.setVisible(true);
         this.setToolTipText("Productos");
 
-        ImageIcon Placeholder = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/PlaceHolder.gif").getImage().getScaledInstance(270, 450, Image.SCALE_DEFAULT));
+        ImageIcon Placeholder = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/PlaceHolder.gif").getImage().getScaledInstance(300, 450, Image.SCALE_DEFAULT));
         this.add(new JLabel(Placeholder));
     }
 }

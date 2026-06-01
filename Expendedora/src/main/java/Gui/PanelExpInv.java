@@ -22,7 +22,7 @@ public class PanelExpInv extends JPanel {
         this.add(Inventario);
     }
     else {
-        ImageIcon explow = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/explow.png").getImage().getScaledInstance(500, 250, Image.SCALE_DEFAULT));
+        ImageIcon explow = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/explow.png").getImage().getScaledInstance(500, 140, Image.SCALE_DEFAULT));
         this.add(new JLabel(explow));
     }
     }

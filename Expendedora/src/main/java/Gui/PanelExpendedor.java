@@ -16,7 +16,7 @@ public class PanelExpendedor extends JPanel {
         Central.setBackground(new Color(190,196,196));
         Central.add(new PanelExpVid(Proxy)); Central.add(new PanelExpPro(Proxy));
 
-        ImageIcon exptop = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/exptop.png").getImage().getScaledInstance(500, 150, Image.SCALE_DEFAULT));
+        ImageIcon exptop = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/exptop.png").getImage().getScaledInstance(500, 130, Image.SCALE_DEFAULT));
         JPanel c = new JPanel(); c.add(new JLabel(exptop)); c.setBackground(new Color(190,196,196));
 
         this.add(c,BorderLayout.NORTH);
