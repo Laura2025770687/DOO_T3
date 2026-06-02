@@ -32,7 +32,7 @@ public class PanelExpPro extends JPanel {
         Vuelto.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/Vuelto.png")));
         Producto.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/Producto.png")));
 
-        Monedas.setToolTipText("meter monedas");
+        Monedas.setToolTipText("Meter monedas");
         Cocacola.setToolTipText("Comprar Cocacola");
         Sprite.setToolTipText("Comprar Sprite");
         Fanta.setToolTipText("Comprar Fanta");

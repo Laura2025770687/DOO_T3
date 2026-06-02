@@ -13,8 +13,8 @@ public class PanelExpInv extends JPanel {
         this.setBackground(new Color(190,196,196));
         this.setBorder(BorderFactory.createEmptyBorder(20, 10, 20, 10));
 
-        Object[] Acesso = {"SI", "NO"};
-        int ConAc = JOptionPane.showOptionDialog(null, "Tienes acceso a invertario?", "Acceso", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, Acesso, Acesso[0]);
+        Object[] Acceso = {"SI", "NO"};
+        int ConAc = JOptionPane.showOptionDialog(null, "Tienes acceso a inventario?", "Acceso", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, Acceso, Acceso[0]);
     if (ConAc==0){
         ImageIcon Placeholder = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/PlaceHolder.gif").getImage().getScaledInstance(500, 150, Image.SCALE_DEFAULT));
         JLabel Inventario = new JLabel(Placeholder);
