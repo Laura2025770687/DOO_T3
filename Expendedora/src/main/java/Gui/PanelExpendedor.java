@@ -9,7 +9,7 @@ public class PanelExpendedor extends JPanel {
     JPanel Central;
     public PanelExpendedor(ProxyExp Proxy){
         this.setLayout(new BorderLayout());
-        this.setMaximumSize(new Dimension(500,1000));
+        this.setMaximumSize(new Dimension(500,830));
 
         Central = new JPanel();
         Central.setLayout(new BoxLayout(Central, BoxLayout.LINE_AXIS));
