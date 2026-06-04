@@ -10,7 +10,7 @@ public class Expendedor {
     private Deposito<Snickers> depSnickers;
     private Deposito<Super8> depSuper8s;
     private Deposito<Moneda> depMonedasVuelto;
-    private int precio;
+    private DepositoEntrega depEntrega;
 
     /**
      * Constructor del expendedor, se llenan los depositos de cada producto y
@@ -24,6 +24,7 @@ public class Expendedor {
         this.depSnickers = new Deposito<Snickers>();
         this.depSuper8s = new Deposito<Super8>();
         this.depMonedasVuelto = new Deposito<Moneda>();
+        this.depEntrega = new DepositoEntrega();
         for(int i = 0; i < llenarDepositos; i++){
             this.depCocaCola.addProducto(new CocaCola());
             this.depSprite.addProducto(new Sprite());
@@ -42,68 +43,72 @@ public class Expendedor {
      * @throws NoHayProductoException Si no quedan unidades en el depósito o el depósito no existe.
      * @return El producto comprado.
      */
-    public Producto comprarProducto(Moneda moneda, int cual)
+    public void comprarProducto(Moneda moneda, Constantes cual)
             throws PagoIncorrectoException, PagoInsuficienteException, NoHayProductoException{
         Producto p = null;
-        int vueltoM100 = 0;
+        int vuelto = 0;
         if(moneda == null){
             throw new PagoIncorrectoException("No se ha ingresado una moneda válida (moneda es null).");
         }
-        else if(cual != 1 && cual != 2 && cual != 3 && cual != 4 &&cual != 5){
-            throw new NoHayProductoException("El número de depósito no existe o el producto no está disponible.");
+        else if(moneda.getValor() < cual.getPrecio()){
+            depMonedasVuelto.addProducto(moneda);
+            throw new PagoInsuficienteException("El valor de la moneda es inferior al precio del producto.");
         }
-        else if(cual == Constantes.COCACOLA.getNumProducto()) {
-            if(moneda.getValor() >= Constantes.COCACOLA.getPrecio()){
-                vueltoM100 = (moneda.getValor() - Constantes.COCACOLA.getPrecio()) / 100;
-            } else{
-                throw new PagoInsuficienteException("El valor de la moneda es inferior al precio del producto.");
-            }
+        else if(cual.getNumProducto() == Constantes.COCACOLA.getNumProducto()) {
             p = depCocaCola.getProducto();
+            if(p == null){
+                throw new NoHayProductoException("El producto no está disponible.");
 
-        }else if(cual == Constantes.SPRITE.getNumProducto()){
-            if(moneda.getValor() >= Constantes.SPRITE.getPrecio()){
-                vueltoM100 = (moneda.getValor() - Constantes.SPRITE.getPrecio()) / 100;
-            }else{
-                throw new PagoInsuficienteException("El valor de la moneda es inferior al precio del producto.");
             }
+            vuelto = moneda.getValor() - Constantes.COCACOLA.getPrecio();
+
+        }else if(cual.getNumProducto() == Constantes.SPRITE.getNumProducto()){
             p = depSprite.getProducto();
-
-        }else if(cual == Constantes.FANTA.getNumProducto()){
-            if(moneda.getValor() >= Constantes.FANTA.getPrecio()){
-                vueltoM100 = (moneda.getValor() - Constantes.FANTA.getPrecio()) / 100;
-            }else{
-                throw new PagoInsuficienteException("El valor de la moneda es inferior al precio del producto.");
+            if(p == null){
+                throw new NoHayProductoException("El producto no está disponible.");
             }
+            vuelto = moneda.getValor() - Constantes.SPRITE.getPrecio();
+
+        }else if(cual.getNumProducto() == Constantes.FANTA.getNumProducto()){
             p = depFanta.getProducto();
-
-        }else if(cual == Constantes.SNICKERS.getNumProducto()){
-            if(moneda.getValor() >= Constantes.SNICKERS.getPrecio()){
-                vueltoM100 = (moneda.getValor() - Constantes.SNICKERS.getPrecio()) / 100;
-            }else{
-                throw new PagoInsuficienteException("El valor de la moneda es inferior al precio del producto.");
+            if(p == null){
+                throw new NoHayProductoException("El producto no está disponible.");
             }
+            vuelto = moneda.getValor() - Constantes.FANTA.getPrecio();
+
+        }else if(cual.getNumProducto() == Constantes.SNICKERS.getNumProducto()){
             p = depSnickers.getProducto();
-
-        }else if(cual == Constantes.SUPER8.getNumProducto()){
-            if(moneda.getValor() >= Constantes.SUPER8.getPrecio()){
-                vueltoM100 = (moneda.getValor() - Constantes.SUPER8.getPrecio()) / 100;
-            }else{
-                throw new PagoInsuficienteException("El valor de la moneda es inferior al precio del producto.");
+            if(p == null){
+                throw new NoHayProductoException("El producto no está disponible.");
             }
+            vuelto = moneda.getValor() - Constantes.SNICKERS.getPrecio();
+
+        }else if(cual.getNumProducto() == Constantes.SUPER8.getNumProducto()){
             p = depSuper8s.getProducto();
+            if(p == null){
+                throw new NoHayProductoException("El producto no está disponible.");
+            }
+            vuelto = moneda.getValor() - Constantes.SUPER8.getPrecio();
+
         }
-        if(vueltoM100 > 0){
-            for(int i= 0; i < vueltoM100; i++){
+        while(vuelto > 0){
+            if(vuelto >= 500){
+                depMonedasVuelto.addProducto(new Moneda500());
+                vuelto -= 500;
+            }else{
                 depMonedasVuelto.addProducto(new Moneda100());
+                vuelto -= 100;
             }
         }
-        if(p == null){
-            throw new NoHayProductoException("El número de depósito no existe o el producto no está disponible.");
-
-        }
-        return p;
+        this.depEntrega.agregar(p);
     }
-
+    /**
+     * Retira el producto del depósito de entrega, dejándolo vacío para la siguiente compra.
+     * @return El {@link Producto} comprado, o null si la ranura está vacía.
+     */
+    public Producto getProducto() {
+        return this.depEntrega.retirar();
+    }
     /**
      * Un getter para obtener las monedas de vuelto de la compra, se tiene
      * que llamar varias veces el metodo hasta sacar todas las monedas.
