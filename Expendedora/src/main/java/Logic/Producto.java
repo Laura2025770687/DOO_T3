@@ -4,14 +4,17 @@ package Logic;
  * expendedora, define el comportamiento base para los productos consumibles.
  */
 public abstract class Producto {
-    private int serie;
+    private static int contadorSerie = 1;
+    protected int serie;
 
     /**
-     * Constructor base para cualquier producto
-     * @param serie El número identificador de cada producto (número de serie).
+     * Constructor por defecto que inicializa un nuevo producto.
+     * Asigna un número de serie único de forma secuencial utilizando
+     * el contador interno y luego incrementa dicho contador para la próxima instancia.
      */
-    public Producto(int serie) {
-        this.serie = serie;
+    public Producto() {
+        this.serie = this.contadorSerie;
+        this.contadorSerie++;
     }
 
     /**
@@ -19,7 +22,7 @@ public abstract class Producto {
      * @return El número de serie del producto actual
      */
     public int getSerie() {
-        return serie;
+        return this.serie;
     }
 
     /**

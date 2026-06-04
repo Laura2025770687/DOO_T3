@@ -5,14 +5,6 @@ package Logic;
  */
 public class Fanta extends Bebida {
     /**
-     * Constructor de Fanta, con su respectivo número de serie
-     * @param serie El número identificador de la bebida.
-     */
-    public Fanta(int serie) {
-        super(serie);
-    }
-
-    /**
      * {@inheritDoc}
      * <p>
      * En este caso, el sabor es Fanta
@@ -22,5 +14,13 @@ public class Fanta extends Bebida {
     @Override
     public String consumir() {
         return "fanta";
+    }
+    /**
+     * Lo que muestra en pantalla al imprimir un Producto Bebida Fanta
+     * @return El tipo de producto, producto y su numero de serie
+     */
+    @Override
+    public String toString() {
+        return "Producto: Bebida Fanta," + " Serie: " + super.serie;
     }
 }

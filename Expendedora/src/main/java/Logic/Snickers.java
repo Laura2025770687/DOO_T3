@@ -5,14 +5,6 @@ package Logic;
  */
 public class Snickers extends Dulce {
     /**
-     * Constructor de Snickers, con su respectivo número de serie
-     * @param serie El número identificador del dulce.
-     */
-    public Snickers(int serie) {
-        super(serie);
-    }
-
-    /**
      * {@inheritDoc}
      * <p>
      * En este caso, el sabor es Snickers
@@ -22,5 +14,13 @@ public class Snickers extends Dulce {
     @Override
     public String consumir() {
         return "snickers";
+    }
+    /**
+     * Lo que muestra en pantalla al imprimir un Producto Dulce Snickers
+     * @return El tipo de producto, producto y su numero de serie
+     */
+    @Override
+    public String toString() {
+        return "Producto: Dulce Snickers," + " Serie: " + super.serie;
     }
 }
