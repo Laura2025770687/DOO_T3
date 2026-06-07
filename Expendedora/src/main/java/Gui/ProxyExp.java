@@ -73,8 +73,38 @@ public class ProxyExp {
                 break;
 
             case (6):
+                ComAct.recogerVuelto(Expen);
+                int vueltoRecogido = ComAct.getVuelto();
+
+                if (vueltoRecogido > 0) {
+                    JOptionPane.showMessageDialog(null,
+                            "Has retirado $" + vueltoRecogido + " en monedas de la máquina. ¡Guardadas en tu monedero!",
+                            "Ranura de Vuelto",
+                            JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null,
+                            "La ranura de vuelto está vacía. No hay monedas que retirar.",
+                            "Ranura de Vuelto",
+                            JOptionPane.WARNING_MESSAGE);
+                }
+                break;
 
             case (7):
+                try {
+                    ComAct.guardarProducto(Expen);
+
+                    JOptionPane.showMessageDialog(null,
+                            "¡Producto retirado de la máquina y guardado en tu inventario con éxito! (Espacio utilizado: " + ComAct.getInventario().size() + "/2)",
+                            "Inventario",
+                            JOptionPane.INFORMATION_MESSAGE);
+
+                } catch (InventarioLlenoException e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage(), "Mochila Llena", JOptionPane.WARNING_MESSAGE);
+
+                } catch (NoHayProductoException e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage(), "Ranura Vacía", JOptionPane.ERROR_MESSAGE);
+                }
+                break;
 
         }
     }

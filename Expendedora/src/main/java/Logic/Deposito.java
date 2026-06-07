@@ -31,7 +31,7 @@ public class Deposito<T> {
      */
     public T getProducto() {
         if (dep.size() != 0)
-            return dep.get(0);
+            return dep.remove(0);
         else
             return null;
     }

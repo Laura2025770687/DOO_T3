@@ -57,6 +57,7 @@ public class Comprador {
     public void comprarProducto( Constantes cual, Expendedor exp)
             throws PagoIncorrectoException, PagoInsuficienteException, NoHayProductoException {
         exp.comprarProducto(cual);
+        this.vuelto = 0;
     }
 
     /**
