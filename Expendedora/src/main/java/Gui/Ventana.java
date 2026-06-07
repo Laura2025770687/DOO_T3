@@ -14,7 +14,6 @@ public class Ventana extends JFrame {
         this.setSize(1000,870);
         this.setVisible(true);
         this.setResizable(false);
-
     }
 
 }
