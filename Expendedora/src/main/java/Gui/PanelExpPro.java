@@ -21,7 +21,7 @@ public class PanelExpPro extends JPanel {
         this.setMaximumSize(new Dimension(200,600));
         this.setLayout(new GridLayout(8,1));
         this.setBackground(new Color(190,196,196));
-        this.setBorder(BorderFactory.createEmptyBorder(20, -5, 20, 10));
+        this.setBorder(BorderFactory.createEmptyBorder(20, -5, 20, 5));
 
         Monedas.add(new JLabel("Placeholder para monedas"));
         Cocacola.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/Cocacola.png")));

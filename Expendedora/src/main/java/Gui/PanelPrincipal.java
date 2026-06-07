@@ -21,15 +21,15 @@ public class PanelPrincipal extends JPanel{
             this.Proxy = new ProxyExp(CantExp);
 
             this.ExpP = new PanelExpendedor(Proxy);
-            ExpP.setMaximumSize(new Dimension(460,790));
-            ExpP.setMinimumSize(new Dimension(460,790));
+            ExpP.setMaximumSize(new Dimension(500,790));
+            ExpP.setMinimumSize(new Dimension(500,790));
             this.add(ExpP);
 
             this.add(Box.createRigidArea(new Dimension(20,0)));
 
             this.ComP = new PanelComprador(Proxy);
-            ComP.setMaximumSize(new Dimension(460,790));
-            ComP.setMinimumSize(new Dimension(460,790));
+            ComP.setMaximumSize(new Dimension(500,790));
+            ComP.setMinimumSize(new Dimension(500,790));
             this.add(ComP);
 
             this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
