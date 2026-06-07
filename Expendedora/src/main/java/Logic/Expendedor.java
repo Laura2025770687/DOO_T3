@@ -41,7 +41,6 @@ public class Expendedor {
      * @throws PagoIncorrectoException Si la moneda recibida es null.
      * @throws PagoInsuficienteException Si el valor de la moneda es menor al precio del producto.
      * @throws NoHayProductoException Si no quedan unidades en el depósito o el depósito no existe.
-     * @return El producto comprado.
      */
     public void comprarProducto(Moneda moneda, Constantes cual)
             throws PagoIncorrectoException, PagoInsuficienteException, NoHayProductoException{

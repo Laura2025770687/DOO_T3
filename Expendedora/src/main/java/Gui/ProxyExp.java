@@ -1,6 +1,8 @@
 package Gui;
 import Logic.*;
 
+import javax.swing.*;
+
 /**
  * info para desarrollar el resto del equipo:
  * La idea es que este proxy funcione como mediador entre PanelCLiente, Panel Expendedor y Consumirdor/Comprador
@@ -10,9 +12,10 @@ import Logic.*;
 public class ProxyExp {
     Expendedor Expen;
     Moneda MonAct = null;
-    Comprador ComAct = null;
-    public ProxyExp(int num){
-        this.Expen = new Expendedor(num);
+    Comprador ComAct;
+    public ProxyExp(int numProd){
+        this.ComAct = new Comprador(5);
+        this.Expen = new Expendedor(numProd);
     }
 
     /**
@@ -25,6 +28,18 @@ public class ProxyExp {
      */
     public void actionBotton(int Botton){
         switch (Botton){
+
+            case (10):
+                seleccionarMonedaDesdeGUI(100);
+                break;
+
+            case (50):
+                seleccionarMonedaDesdeGUI(500);
+                break;
+
+            case (100):
+                seleccionarMonedaDesdeGUI(1000);
+                break;
 
             case (0):
 
@@ -45,5 +60,27 @@ public class ProxyExp {
         }
     }
 
+    /**
+     * Helper metodológico para gestionar la selección de monedas desde la GUI.
+     * Si el usuario ya tenía una moneda en la mano, esta se devuelve automáticamente
+     * al monedero antes de extraer la nueva denominación solicitada.
+     * * @param valor Denominación de la moneda solicitada ($100, $500, $1000).
+     */
+    private void seleccionarMonedaDesdeGUI(int valor) {
+        if (this.MonAct != null) {
+            ComAct.getMonedero().add(this.MonAct);
+            this.MonAct = null;
+        }
 
+        try {
+            this.MonAct = ComAct.seleccionarMoneda(valor);
+            JOptionPane.showMessageDialog(null,
+                    "Moneda de $" + valor + " seleccionada. ¡Lista para insertar!",
+                    "Monedero",
+                    JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (PagoIncorrectoException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error de Fondos", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 }
