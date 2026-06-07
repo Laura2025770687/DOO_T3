@@ -2,22 +2,31 @@ package Gui;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Esqueleto de panel cliente parte integrante 2
- */
 public class PanelComprador extends JPanel {
-    JPanel panel2 = new JPanel();
-    JPanel panel3 = new JPanel();
+    PanelCompInv compInv;
+    PanelMonedero mon;
     public PanelComprador(ProxyExp Proxy) {
         this.setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
         this.setMaximumSize(new Dimension(470, 790));
-        this.setBackground(new Color(190,196,196));
 
-        panel2.setBackground(Color.cyan);
-        panel3.setBackground(Color.blue);
+        compInv = new PanelCompInv(Proxy);
+        mon = new PanelMonedero(Proxy);
 
         this.add(new PanelInstrucciones(Proxy));
-        this.add(panel2);
-        this.add(panel3);
+        this.add(mon);
+        this.add(Box.createRigidArea(new Dimension(0,10)));
+    }
+
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        g.setColor(new Color(190,196,196));
+        g.fillRect(0, 0, this.getWidth(), this.getHeight());
+        //Requiere deposito de monedas
+        //Requiere inventario de comprador
+        //mon.paintComponent(g);
+        g.setColor(new Color(170,170,170));
+        compInv.paintComponent(g);
     }
 }
