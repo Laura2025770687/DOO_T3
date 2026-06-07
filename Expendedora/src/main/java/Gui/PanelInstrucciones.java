@@ -6,7 +6,7 @@ import java.awt.*;
 public class PanelInstrucciones extends JPanel {
     public PanelInstrucciones(ProxyExp Proxy) {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        this.setMaximumSize(new Dimension(470,100));
+        this.setMaximumSize(new Dimension(470,170));
         this.setBackground(new Color(190,196,196));
 
         JLabel titulo = new JLabel("Instrucciones");
