@@ -1,6 +1,7 @@
 package Gui;
 
 import javax.swing.*;
+import javax.swing.border.MatteBorder;
 import java.awt.*;
 
 /**
@@ -9,21 +10,25 @@ import java.awt.*;
  * (por ahora un placeholder)
  */
 public class PanelExpInv extends JPanel {
+    int ConAc=1;
     public PanelExpInv(ProxyExp Proxy){
-        this.setBackground(new Color(190,196,196));
-        this.setBorder(BorderFactory.createEmptyBorder(20, 10, 20, 10));
+        //this.setMaximumSize(new Dimension(450,200));
+        this.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
+        this.add(Box.createRigidArea(new Dimension(440,190)));
+        this.setOpaque(false);
+
+        //this.setBackground(Color.GREEN);
+        //this.setBorder(new MatteBorder(1,1,1,1,Color.RED));
 
         Object[] Acceso = {"SI", "NO"};
-        int ConAc = JOptionPane.showOptionDialog(null, "Tienes acceso a inventario?", "Acceso", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, Acceso, Acceso[0]);
-    if (ConAc==0){
-        ImageIcon Placeholder = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/PlaceHolder.gif").getImage().getScaledInstance(500, 150, Image.SCALE_DEFAULT));
-        JLabel Inventario = new JLabel(Placeholder);
-        Inventario.setToolTipText("Inventario");
-        this.add(Inventario);
+        ConAc = JOptionPane.showOptionDialog(null, "Tienes acceso a inventario?", "Acceso", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, Acceso, Acceso[0]);
     }
-    else {
-        ImageIcon explow = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/explow.png").getImage().getScaledInstance(500, 150, Image.SCALE_DEFAULT));
-        this.add(new JLabel(explow));
-    }
+    @Override
+    public void paintComponent(Graphics b) {
+        super.paintComponent(b);
+        if (ConAc==0) {
+            ImageIcon Placeholder = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/PlaceHolder.png").getImage().getScaledInstance(430, 180, Image.SCALE_DEFAULT));
+            b.drawImage(Placeholder.getImage(), 10, 10,this);
+        }
     }
 }

@@ -1,6 +1,7 @@
 package Gui;
 
 import javax.swing.*;
+import javax.swing.border.MatteBorder;
 import java.awt.*;
 
 /**
@@ -8,13 +9,18 @@ import java.awt.*;
  */
 public class PanelExpVid extends JPanel {
     public PanelExpVid(ProxyExp Proxy){
-        this.setMaximumSize(new Dimension(500,500));
-        this.setBackground(new Color(190,196,196));
-        this.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        this.setVisible(true);
-        this.setToolTipText("Productos");
+        this.setMaximumSize(new Dimension(260,400));
+        this.add(Box.createRigidArea(new Dimension(260,400)));
+        this.setOpaque(false);
 
-        ImageIcon Placeholder = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/PlaceHolder.gif").getImage().getScaledInstance(300, 450, Image.SCALE_DEFAULT));
-        this.add(new JLabel(Placeholder));
+        //this.setBorder(new MatteBorder(1,1,1,1,Color.RED));
+
+        this.setToolTipText("Productos");
+    }
+    @Override
+    public void paintComponent(Graphics c){
+        super.paintComponent(c);
+        ImageIcon Placeholder = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/PlaceHolder.png").getImage().getScaledInstance(250, 400, Image.SCALE_DEFAULT));
+        c.drawImage(Placeholder.getImage(),10,10,null);
     }
 }

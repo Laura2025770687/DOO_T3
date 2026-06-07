@@ -23,6 +23,8 @@ public class PanelPrincipal extends JPanel{
             this.ExpP = new PanelExpendedor(Proxy);
             ExpP.setMaximumSize(new Dimension(460,790));
             ExpP.setMinimumSize(new Dimension(460,790));
+            ExpP.setOpaque(false);
+            ExpP.setBackground(new Color(0,0,0,0));
             this.add(ExpP);
 
             this.add(Box.createRigidArea(new Dimension(20,0)));
@@ -34,5 +36,11 @@ public class PanelPrincipal extends JPanel{
 
             this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
             this.setBackground(new Color(180,198,220));
+        }
+        @Override
+        public void paintComponent(Graphics g){
+            super.paintComponent(g);
+            //ExpP.paintComponent(g);
+            //omP.paintComponent(g);
         }
 }

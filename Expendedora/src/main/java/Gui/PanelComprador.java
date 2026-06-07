@@ -19,4 +19,7 @@ public class PanelComprador extends JPanel {
         this.add(panel2);
         this.add(panel3);
     }
+    //public void paintComponent(Graphics g){
+       //super.paintComponent(g);
+    //}
 }

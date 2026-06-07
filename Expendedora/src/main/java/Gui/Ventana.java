@@ -10,11 +10,10 @@ public class Ventana extends JFrame {
         JPanel a = new PanelPrincipal();
         this.add(a);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setName("Expendedor");
-        this.setSize(1000,830);
+        this.setTitle("Expendedor");
+        this.setSize(1000,870);
         this.setVisible(true);
         this.setResizable(false);
-
     }
 
 }
