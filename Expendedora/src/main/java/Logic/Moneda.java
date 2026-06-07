@@ -4,7 +4,18 @@ package Logic;
  * expendedora, define los comportamientos base de cualquier moneda.
  */
 public abstract class Moneda implements Comparable<Moneda> {
+    private static int contadorSerie = 1;
+    private int serie;
 
+    /**
+     * Constructor por defecto que inicializa una nueva moneda.
+     * Asigna un número de serie único de forma secuencial utilizando
+     * el contador interno y luego incrementa dicho contador para la próxima instancia.
+     */
+    public Moneda(){
+        this.serie = this.contadorSerie;
+        this.contadorSerie++;
+    }
     /**
      * Todas las subclases debe implementarlo para saber el valor de la moneda
      * @return El valor de la moneda actual
@@ -32,6 +43,6 @@ public abstract class Moneda implements Comparable<Moneda> {
      */
     @Override
     public String toString() {
-        return "Valor moneda: " + this.getValor() + "Serie: " + this;
+        return "Valor moneda: " + this.getValor() + ", Serie: " + this.serie;
     }
 }

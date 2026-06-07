@@ -5,14 +5,6 @@ package Logic;
  */
 public class Super8 extends Dulce {
     /**
-     * Constructor de Super8, con su respectivo número de serie
-     * @param serie El número identificador del dulce.
-     */
-    public Super8(int serie) {
-        super(serie);
-    }
-
-    /**
      * {@inheritDoc}
      * <p>
      * En este caso, el sabor es Super8
@@ -22,5 +14,13 @@ public class Super8 extends Dulce {
     @Override
     public String consumir() {
         return "super8";
+    }
+    /**
+     * Lo que muestra en pantalla al imprimir un Producto Dulce Super8
+     * @return El tipo de producto, producto y su numero de serie
+     */
+    @Override
+    public String toString() {
+        return "Producto: Dulce Super8," + " Serie: " + super.serie;
     }
 }

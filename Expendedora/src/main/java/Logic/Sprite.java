@@ -5,14 +5,6 @@ package Logic;
  */
 public class Sprite extends Bebida {
     /**
-     * Constructor de Sprite, con su respectivo número de serie
-     * @param serie El número identificador de la bebida.
-     */
-    public Sprite(int serie) {
-        super(serie);
-    }
-
-    /**
      * {@inheritDoc}
      * <p>
      * En este caso, el sabor es Sprite
@@ -22,5 +14,13 @@ public class Sprite extends Bebida {
     @Override
     public String consumir() {
         return "sprite";
+    }
+    /**
+     * Lo que muestra en pantalla al imprimir un Producto Bebida Sprite
+     * @return El tipo de producto, producto y su numero de serie
+     */
+    @Override
+    public String toString() {
+        return "Producto: Bebida Sprite," + " Serie: " + super.serie;
     }
 }
