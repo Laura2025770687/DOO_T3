@@ -42,16 +42,35 @@ public class ProxyExp {
                 break;
 
             case (0):
+                try {
+                    Expen.insertarMonedaEnRanura(this.MonAct);
+                    this.MonAct = null;
+
+                    JOptionPane.showMessageDialog(null, "Moneda introducida con éxito. Seleccione su producto.", "Expendedor", JOptionPane.INFORMATION_MESSAGE);
+                } catch (PagoIncorrectoException e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                break;
 
             case (1):
+                procesarCompra(Constantes.COCACOLA);
+                break;
 
             case (2):
+                procesarCompra(Constantes.SPRITE);
+                break;
 
             case (3):
+                procesarCompra(Constantes.FANTA);
+                break;
 
             case (4):
+                procesarCompra(Constantes.SUPER8);
+                break;
 
             case (5):
+                procesarCompra(Constantes.SNICKERS);
+                break;
 
             case (6):
 
@@ -81,6 +100,32 @@ public class ProxyExp {
 
         } catch (PagoIncorrectoException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error de Fondos", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    /**
+     * Procesa la transacción de compra interactuando con el expendedor lógico.
+     * Centraliza el flujo de la moneda en la mano y el control visual de excepciones.
+     * * @param producto La constante o Enum que identifica la bebida/dulce solicitado.
+     */
+    private void procesarCompra(Constantes producto) {
+        try {
+            ComAct.comprarProducto(producto, this.Expen);
+
+            this.MonAct = null;
+
+            JOptionPane.showMessageDialog(null,
+                    "¡Compra exitosa! El producto se encuentra en la ranura de entrega.",
+                    "Máquina Expendedora",
+                    JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (PagoInsuficienteException | NoHayProductoException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage() + " Por favor retire el dinero", "Saldo Insuficiente", JOptionPane.ERROR_MESSAGE);
+
+            this.MonAct = null;
+
+        } catch (PagoIncorrectoException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error en la Compra", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

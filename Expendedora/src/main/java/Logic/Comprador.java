@@ -48,16 +48,15 @@ public class Comprador {
 
     /**
      * Intenta iniciar el proceso de compra de un producto en el expendedor.
-     * @param moneda La moneda física que se ingresará a la máquina.
      * @param cual El identificador o constante del producto que se desea adquirir.
      * @param exp La instancia de la máquina expendedora donde se realiza la transacción.
      * @throws PagoIncorrectoException Si la moneda ingresada es nula.
      * @throws PagoInsuficienteException Si el valor de la moneda es menor al precio del producto.
      * @throws NoHayProductoException Si el depósito del producto seleccionado no cuenta con stock.
      */
-    public void comprarProducto(Moneda moneda, Constantes cual, Expendedor exp)
+    public void comprarProducto( Constantes cual, Expendedor exp)
             throws PagoIncorrectoException, PagoInsuficienteException, NoHayProductoException {
-        exp.comprarProducto(moneda, cual);
+        exp.comprarProducto(cual);
     }
 
     /**

@@ -11,6 +11,7 @@ public class Expendedor {
     private Deposito<Super8> depSuper8s;
     private Deposito<Moneda> depMonedasVuelto;
     private DepositoEntrega depEntrega;
+    private Moneda monedaEnRanura = null;
 
     /**
      * Constructor del expendedor, se llenan los depositos de cada producto y
@@ -35,21 +36,38 @@ public class Expendedor {
     }
 
     /**
+     * Permite depositar una moneda en la ranura de espera de la máquina.
+     * @param m La moneda que se introduce.
+     * @throws PagoIncorrectoException Si ya hay una moneda en la ranura.
+     */
+    public void insertarMonedaEnRanura(Moneda m) throws PagoIncorrectoException {
+        if (this.monedaEnRanura != null) {
+            throw new PagoIncorrectoException("Ya hay una moneda en la ranura. Elíja un producto.");
+        }
+        if (m == null) {
+            throw new PagoIncorrectoException("No tienes ninguna moneda en la mano.");
+        }
+        this.monedaEnRanura = m;
+    }
+
+    /**
      * Compra del producto deseado.
-     * @param moneda El dinero para comprar el producto.
      * @param cual El numero identificador del producto que se desea comprar.
      * @throws PagoIncorrectoException Si la moneda recibida es null.
      * @throws PagoInsuficienteException Si el valor de la moneda es menor al precio del producto.
      * @throws NoHayProductoException Si no quedan unidades en el depósito o el depósito no existe.
      */
-    public void comprarProducto(Moneda moneda, Constantes cual)
+    public void comprarProducto(Constantes cual)
             throws PagoIncorrectoException, PagoInsuficienteException, NoHayProductoException{
+        if (this.monedaEnRanura == null) {
+            throw new PagoIncorrectoException("No se ha introducido ninguna moneda en la ranura.");
+        }
+        Moneda moneda = this.monedaEnRanura;
+        this.monedaEnRanura = null;
         Producto p = null;
         int vuelto = 0;
-        if(moneda == null){
-            throw new PagoIncorrectoException("No se ha ingresado una moneda válida (moneda es null).");
-        }
-        else if(moneda.getValor() < cual.getPrecio()){
+
+        if(moneda.getValor() < cual.getPrecio()){
             depMonedasVuelto.addProducto(moneda);
             throw new PagoInsuficienteException("El valor de la moneda es inferior al precio del producto.");
         }
