@@ -150,7 +150,6 @@ public class ProxyExp {
         try {
             ComAct.comprarProducto(producto, this.Expen);
 
-            this.MonAct = null;
 
             JOptionPane.showMessageDialog(null,
                     "¡Compra exitosa! El producto se encuentra en la ranura de entrega.",
@@ -160,7 +159,6 @@ public class ProxyExp {
         } catch (PagoInsuficienteException | NoHayProductoException e) {
             JOptionPane.showMessageDialog(null, e.getMessage() + " Por favor retire el dinero", "Saldo Insuficiente", JOptionPane.ERROR_MESSAGE);
 
-            this.MonAct = null;
 
         } catch (PagoIncorrectoException | DepositoEntregaLlenoException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error en la Compra", JOptionPane.ERROR_MESSAGE);
