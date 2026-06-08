@@ -118,6 +118,13 @@ public class Comprador {
         if (indice < 0 || indice >= inventario.size()) {
             throw new RanuraInventarioVaciaException("No hay ningún producto en la ranura seleccionada de la mochila.");
         }
+
+        if (indice == 0 && inventario.get(0) == null) {
+            throw new RanuraInventarioVaciaException("La ranura está vacía");
+        } else if (indice == 1 && inventario.get(1) == null) {
+            throw new RanuraInventarioVaciaException("La ranura está vacía");
+        }
+
         Producto p = this.inventario.remove(indice);
         this.sabor = p.consumir();
     }
