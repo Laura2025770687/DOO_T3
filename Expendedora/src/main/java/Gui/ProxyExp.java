@@ -14,7 +14,7 @@ public class ProxyExp {
     Moneda MonAct = null;
     Comprador ComAct;
     public ProxyExp(int numProd){
-        this.ComAct = new Comprador(5);
+        this.ComAct = new Comprador(17);
         this.Expen = new Expendedor(numProd);
     }
 
@@ -105,7 +105,10 @@ public class ProxyExp {
                     JOptionPane.showMessageDialog(null, e.getMessage(), "Ranura Vacía", JOptionPane.ERROR_MESSAGE);
                 }
                 break;
-
+            case(11):
+                break;
+            case(12):
+                break;
         }
     }
 
@@ -117,7 +120,13 @@ public class ProxyExp {
      */
     private void seleccionarMonedaDesdeGUI(int valor) {
         if (this.MonAct != null) {
-            ComAct.getMonedero().add(this.MonAct);
+            if (this.MonAct.getValor() == 1000) {
+                ComAct.getMonedero(1000).add(this.MonAct);
+            } else if (this.MonAct.getValor() == 500) {
+                ComAct.getMonedero(500).add(this.MonAct);
+            } else if (this.MonAct.getValor() == 100) {
+                ComAct.getMonedero(100).add(MonAct);
+            }
             this.MonAct = null;
         }
 
