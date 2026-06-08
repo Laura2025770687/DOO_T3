@@ -14,7 +14,7 @@ public class ProxyExp {
     Moneda MonAct = null;
     Comprador ComAct;
     public ProxyExp(int numProd){
-        this.ComAct = new Comprador(17);
+        this.ComAct = new Comprador(5);
         this.Expen = new Expendedor(numProd);
     }
 
@@ -88,7 +88,6 @@ public class ProxyExp {
                             JOptionPane.WARNING_MESSAGE);
                 }
                 break;
-
             case (7):
                 try {
                     ComAct.guardarProducto(Expen);

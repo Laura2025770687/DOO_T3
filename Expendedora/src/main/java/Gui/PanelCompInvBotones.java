@@ -16,8 +16,6 @@ public class PanelCompInvBotones extends JPanel {
         consumir2.setContentAreaFilled(false);
         consumir2.setBorderPainted(false);
 
-        consumir1.addActionListener(new ClickBottonExp());
-
         this.add(consumir1);
         this.add(consumir2);
     }
