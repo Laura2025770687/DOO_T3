@@ -1,22 +1,34 @@
 package Gui;
 
-import Logic.Producto;
-
+import Logic.*;
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class PanelCompInv extends JPanel {
-    //Requiere inventario de comprador
-    Producto prod;
+    ProxyExp proxy;
+    Image imgCo;
+    Image imgSp;
+    Image imgFa;
+    Image imgS8;
+    Image imgSn;
     public PanelCompInvBotones botones;
+
     public PanelCompInv(ProxyExp proxy) {
         this.setLayout(null);
-        this.setMinimumSize(new Dimension(460,220));
-        this.setMaximumSize(new Dimension(460,220));
-        this.setPreferredSize(new Dimension(460,220));
+        this.setMinimumSize(new Dimension(460, 220));
+        this.setMaximumSize(new Dimension(460, 220));
+        this.setPreferredSize(new Dimension(460, 220));
+
+        this.proxy = proxy;
+        imgCo = new ImageIcon("DOO_T3/Imagenes/").getImage();
+        imgSp = new ImageIcon("DOO_T3/Imagenes/").getImage();
+        imgFa = new ImageIcon("DOO_T3/Imagenes/").getImage();
+        imgS8 = new ImageIcon("DOO_T3/Imagenes/").getImage();
+        imgSn = new ImageIcon("DOO_T3/Imagenes/").getImage();
 
         botones = new PanelCompInvBotones(proxy);
-        botones.setBounds(80,40,300,130);
+        botones.setBounds(80, 40, 300, 130);
         this.add(botones);
     }
 
@@ -24,22 +36,43 @@ public class PanelCompInv extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        g.setColor(new Color(196,196,190));
-        g.fillRect(0,0,460,220);
+        g.setColor(new Color(196, 196, 190));
+        g.fillRect(0, 0, 460, 220);
 
-        g.setColor(new Color(170,170,170));
-        g.fillRect(10,0,440,210);
+        g.setColor(new Color(170, 170, 170));
+        g.fillRect(10, 0, 440, 210);
 
         g.setColor((Color.BLACK));
         g.setFont(new Font("Arial", Font.BOLD, 20));
-        g.drawString("Inventario:", 179,0);
+        g.drawString("Inventario:", 179, 0);
 
-        g.setColor(new Color(70,70,200));
-        g.fillRect(75,35,140,140);
-        g.fillRect(245,35,140,140);
+        g.setColor(new Color(70, 70, 200));
+        g.fillRect(75, 35, 140, 140);
+        g.fillRect(245, 35, 140, 140);
 
-        g.setColor(new Color(120,120,200));
-        g.fillRect(80,40,130,130);
-        g.fillRect(250,40,130,130);
+        g.setColor(new Color(120, 120, 200));
+        g.fillRect(80, 40, 130, 130);
+        g.fillRect(250, 40, 130, 130);
+
+        ArrayList<Producto> inv = proxy.ComAct.getInventario();
+        for (int i = 0; i < inv.size(); i++) {
+            Producto p = inv.get(i);
+
+            int X;
+            if (i == 0) X = 80;
+            else X = 250;
+
+            if (p instanceof CocaCola) {
+                g.drawImage(imgCo,X,40,130,130,null);
+            } else if (p instanceof Sprite) {
+                g.drawImage(imgSp,X,40,130,130,null);
+            } else if (p instanceof Fanta) {
+                g.drawImage(imgFa,X,40,130,130,null);
+            } else if (p instanceof Super8) {
+                g.drawImage(imgS8,X,40,130,130,null);
+            } else {
+                g.drawImage(imgSn,X,40,130,130,null);
+            }
+        }
     }
 }

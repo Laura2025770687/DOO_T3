@@ -1,4 +1,6 @@
 package Gui;
+
+import Logic.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,7 +13,7 @@ import java.awt.*;
 public class ClickBottonExp implements ActionListener {
     int Button;
     ProxyExp Ask;
-    public ClickBottonExp(int Botton,ProxyExp Proxy){
+    public ClickBottonExp(int Botton, ProxyExp Proxy){
         this.Button = Botton;
         Ask = Proxy;
     }
@@ -19,10 +21,9 @@ public class ClickBottonExp implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Ask.actionBotton(Button);
 
-        Component botonClickeado = (Component)e.getSource();
-        if (botonClickeado != null &&
-                SwingUtilities.getWindowAncestor(botonClickeado) != null) {
-            SwingUtilities.getWindowAncestor(botonClickeado).repaint();
+        Component botonClick = (Component)e.getSource();
+        if (SwingUtilities.getWindowAncestor(botonClick) != null) {
+            SwingUtilities.getWindowAncestor(botonClick).repaint();
         }
     }
 }

@@ -105,8 +105,26 @@ public class ProxyExp {
                 }
                 break;
             case(11):
+                try {
+                    ComAct.consumirProducto(0);
+                    JOptionPane.showMessageDialog(null,
+                                        "Sabor " + ComAct.getSabor(), "Producto consumido",
+                                                 JOptionPane.INFORMATION_MESSAGE);
+                } catch (RanuraInventarioVaciaException e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage(),
+                            "Ranura Vacía", JOptionPane.ERROR_MESSAGE);
+                }
                 break;
             case(12):
+                try {
+                    ComAct.consumirProducto(1);
+                    JOptionPane.showMessageDialog(null,
+                            "Sabor " + ComAct.getSabor(), "Producto consumido",
+                                     JOptionPane.INFORMATION_MESSAGE);
+                } catch (RanuraInventarioVaciaException e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage(),
+                            "Ranura Vacía", JOptionPane.ERROR_MESSAGE);
+                }
                 break;
         }
     }
