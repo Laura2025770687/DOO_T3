@@ -20,7 +20,7 @@ public class PanelExpVid extends JPanel {
     @Override
     public void paintComponent(Graphics c){
         super.paintComponent(c);
-        ImageIcon Placeholder = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/PlaceHolder.png").getImage().getScaledInstance(250, 400, Image.SCALE_DEFAULT));
+        ImageIcon Placeholder = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/Vidrio.png").getImage().getScaledInstance(250, 400, Image.SCALE_DEFAULT));
         c.drawImage(Placeholder.getImage(),10,10,null);
     }
 }
