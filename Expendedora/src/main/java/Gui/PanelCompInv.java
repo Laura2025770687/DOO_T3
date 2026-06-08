@@ -16,18 +16,18 @@ public class PanelCompInv extends JPanel {
         super.paintComponent(g);
 
         g.setColor(new Color(170,170,170));
-        g.fillRect(10,540,480,202);
+        g.fillRect(10,540,440,202);
 
         g.setColor((Color.BLACK));
         g.setFont(new Font("Arial", Font.BOLD, 20));
-        g.drawString("Inventario:", 204,566);
+        g.drawString("Inventario:", 179,566);
 
         g.setColor(new Color(70,70,200));
-        g.fillRect(100,580,140,140);
-        g.fillRect(270,580,140,140);
+        g.fillRect(75,580,140,140);
+        g.fillRect(245,580,140,140);
 
         g.setColor(new Color(120,120,200));
-        g.fillRect(105,585,130,130);
-        g.fillRect(275,585,130,130);
+        g.fillRect(80,585,130,130);
+        g.fillRect(250,585,130,130);
     }
 }
