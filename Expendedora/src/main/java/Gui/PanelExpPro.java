@@ -27,7 +27,7 @@ public class PanelExpPro extends JPanel {
         this.setOpaque(false);
         this.setBackground(Color.BLUE);
 
-        Monedas.add(new JLabel("Placeholder para monedas"));
+        Monedas.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/CasillaMon.png")));
         Cocacola.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/Cocacola.png")));
         Sprite.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/Sprite.png")));
         Fanta.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/Fanta.png")));
@@ -62,7 +62,6 @@ public class PanelExpPro extends JPanel {
         this.add(Super8);
         this.add(Vuelto);
         this.add(Producto);
-
 
     }
     @Override
