@@ -1,6 +1,8 @@
 package Gui;
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.*;
 
 /**
  * Action listener para cuando se genere un click
@@ -16,5 +18,11 @@ public class ClickBottonExp implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Ask.actionBotton(Button);
+
+        Component botonClickeado = (Component)e.getSource();
+        if (botonClickeado != null &&
+                SwingUtilities.getWindowAncestor(botonClickeado) != null) {
+            SwingUtilities.getWindowAncestor(botonClickeado).repaint();
+        }
     }
 }

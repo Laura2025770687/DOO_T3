@@ -21,11 +21,9 @@ public class PanelMonederoBotones extends JPanel {
         mon500.setToolTipText("Insertar moneda de 500");
         mon100.setToolTipText("Insertar moneda de 100");
 
-        // Coneccion con el proxy
-        // Asignacion IDs únicos que el switch del Proxy pueda interceptar
-        mon1000.addActionListener(new ClickBottonExp(100, proxy)); // ID 100 para la de $1000
-        mon500.addActionListener(new ClickBottonExp(50, proxy));   // ID 50 para la de $500
-        mon100.addActionListener(new ClickBottonExp(10, proxy));   // ID 10 para la de $100
+        mon1000.addActionListener(new ClickBottonExp(100, proxy));
+        mon500.addActionListener(new ClickBottonExp(50, proxy));
+        mon100.addActionListener(new ClickBottonExp(10, proxy));
 
         this.add(mon1000);
         this.add(mon500);
