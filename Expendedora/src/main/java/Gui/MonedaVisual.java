@@ -4,14 +4,15 @@ import java.awt.*;
 
 //Valor y numeroSerie por ahora, se requiere una clase comprador en la lógica
 public class MonedaVisual {
-    private int x;
-    private int y;
-    private int numeroSerie;
-    private int valor;
-
-    public MonedaVisual(int numeroSerie, int valor) {
-        this.numeroSerie = numeroSerie;
+    int x;
+    int y;
+    int valor;
+    int numeroSerie;
+    ProxyExp proxy;
+    public MonedaVisual(ProxyExp proxy, int valor, int numeroSerie) {
+        this.proxy = proxy;
         this.valor = valor;
+        this.numeroSerie = numeroSerie;
     }
 
     public void setXY(int x, int y) {
@@ -19,22 +20,18 @@ public class MonedaVisual {
         this.y = y;
     }
 
-    public void paintComponent(Graphics g) {
-        int d = 50;
-        if (valor == 100) {
-            g.setColor(new Color(205, 127, 50));
-        } else if (this.valor == 500) {
-            g.setColor(Color.LIGHT_GRAY);
-        } else if (valor == 1000) {
-            g.setColor(new Color(255, 215, 0));
-        }
+    public void quitarMoneda() {
 
-        g.fillOval(x, y, d, d);
+    }
+
+    public void paintComponent(Graphics g) {
+        g.fillOval(x, y, 45, 45);
 
         g.setColor(Color.BLACK);
-        g.drawOval(x, y, d, d);
+        g.drawOval(x, y, 45, 45);
 
         g.setFont(new Font("Arial", Font.BOLD, 10));
-        g.drawString(String.valueOf(numeroSerie), this.x + 4, this.y - 19);
+        g.drawString(String.valueOf(valor), x + 15, y + 25);
+        g.drawString(String.valueOf("#" + numeroSerie), x + 20, y + 40);
     }
 }
