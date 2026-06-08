@@ -7,7 +7,7 @@ public class PanelComprador extends JPanel {
     PanelMonedero mon;
     public PanelComprador(ProxyExp Proxy) {
         this.setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
-        this.setMaximumSize(new Dimension(470, 790));
+        this.setMaximumSize(new Dimension(460, 790));
 
         compInv = new PanelCompInv(Proxy);
         mon = new PanelMonedero(Proxy);
@@ -15,6 +15,7 @@ public class PanelComprador extends JPanel {
         this.add(new PanelInstrucciones(Proxy));
         this.add(mon);
         this.add(Box.createRigidArea(new Dimension(0,10)));
+        this.add(compInv);
     }
 
     @Override
@@ -23,13 +24,5 @@ public class PanelComprador extends JPanel {
 
         g.setColor(new Color(190,196,196));
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
-        //Requiere deposito de monedas
-        //Requiere inventario de comprador
-        //mon.paintComponent(g);
-        g.setColor(new Color(170,170,170));
-        compInv.paintComponent(g);
     }
-    //public void paintComponent(Graphics g){
-       //super.paintComponent(g);
-    //}
 }

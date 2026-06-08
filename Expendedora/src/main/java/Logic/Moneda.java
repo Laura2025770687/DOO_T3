@@ -38,6 +38,14 @@ public abstract class Moneda implements Comparable<Moneda> {
     }
 
     /**
+     * Getter de la serie de la moneda
+     * @return la serie de la moneda
+     */
+    public int getSerie() {
+        return serie;
+    }
+
+    /**
      * Lo que muestra en pantalla al imprimir una moneda
      * @return El valor de la moneda y su serie
      */

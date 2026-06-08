@@ -6,7 +6,9 @@ import java.util.ArrayList;
  * Representa un comprador cualquiera de producto para la máquina expendedora.
  */
 public class Comprador {
-    private ArrayList<Moneda> monedero;
+    private ArrayList<Moneda> monedero1000;
+    private ArrayList<Moneda> monedero500;
+    private ArrayList<Moneda> monedero100;
     private ArrayList<Producto> inventario;
     private String sabor;
     private int vuelto;
@@ -17,17 +19,24 @@ public class Comprador {
      * @param cantidadMonedas Cantidad de ciclos de monedas (100, 500, 1000) con las que iniciará el cliente.
      */
     public Comprador(int cantidadMonedas){
-        this.monedero = new ArrayList<>();
+        this.monedero1000 = new ArrayList<>();
+        this.monedero500 = new ArrayList<>();
+        this.monedero100 = new ArrayList<>();
         this.inventario = new ArrayList<>();
         this.sabor = null;
         this.vuelto = 0;
 
         for (int i = 0; i < cantidadMonedas; i++) {
-            this.monedero.add(new Moneda1000());
-            this.monedero.add(new Moneda500());
-            this.monedero.add(new Moneda100());
+            this.monedero1000.add(new Moneda1000());
         }
 
+        for (int i = 0; i < cantidadMonedas; i++) {
+            this.monedero500.add(new Moneda500());
+        }
+
+        for (int i = 0; i < cantidadMonedas; i++) {
+            this.monedero100.add(new Moneda100());
+        }
     }
 
     /**
@@ -38,10 +47,12 @@ public class Comprador {
      * @throws PagoIncorrectoException Si no quedan monedas de la denominación especificada en el monedero.
      */
     public Moneda seleccionarMoneda(int valor) throws PagoIncorrectoException {
-        for (int i = 0; i < monedero.size(); i++) {
-            if (monedero.get(i).getValor() == valor) {
-                return monedero.remove(i); // Remueve y retorna la moneda encontrada
-            }
+        if (valor == 1000 && monedero1000.size() != 0) {
+            return monedero1000.remove(0); // Remueve y retorna la moneda encontrada
+        } else if (valor == 500 && monedero500.size() != 0) {
+            return monedero500.remove(0);
+        } else if (valor == 100 && monedero100.size() != 0) {
+            return monedero100.remove(0);
         }
         throw new PagoIncorrectoException("¡No te quedan monedas de $" + valor + "!");
     }
@@ -89,7 +100,11 @@ public class Comprador {
         Moneda mVuelto;
         while ((mVuelto = exp.getVuelto()) != null) {
             this.vuelto += mVuelto.getValor();
-            this.monedero.add(mVuelto);
+            if (mVuelto.getValor() == 500) {
+                this.monedero500.add(mVuelto);
+            } else if (mVuelto.getValor() == 100) {
+                this.monedero100.add(mVuelto);
+            }
         }
     }
 
@@ -125,8 +140,15 @@ public class Comprador {
      * Útil para que la interfaz gráfica pueda contabilizar y dibujar el stock de dinero.
      * @return Un {@link ArrayList} que contiene las monedas disponibles.
      */
-    public ArrayList<Moneda> getMonedero() {
-        return this.monedero;
+    public ArrayList<Moneda> getMonedero(int valor) {
+        if (valor == 1000) {
+            return this.monedero1000;
+        } else if (valor == 500) {
+            return this.monedero500;
+        } else if (valor == 100) {
+            return this.monedero100;
+        }
+        return null;
     }
 
     /**
