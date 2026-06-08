@@ -98,11 +98,11 @@ public class ProxyExp {
                             "Inventario",
                             JOptionPane.INFORMATION_MESSAGE);
 
+                } catch (NoHayProductoException e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage(), "Ranura Vacía", JOptionPane.ERROR_MESSAGE);
                 } catch (InventarioLlenoException e) {
                     JOptionPane.showMessageDialog(null, e.getMessage(), "Mochila Llena", JOptionPane.WARNING_MESSAGE);
 
-                } catch (NoHayProductoException e) {
-                    JOptionPane.showMessageDialog(null, e.getMessage(), "Ranura Vacía", JOptionPane.ERROR_MESSAGE);
                 }
                 break;
 
@@ -154,7 +154,7 @@ public class ProxyExp {
 
             this.MonAct = null;
 
-        } catch (PagoIncorrectoException e) {
+        } catch (PagoIncorrectoException | DepositoEntregaLlenoException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error en la Compra", JOptionPane.ERROR_MESSAGE);
         }
     }

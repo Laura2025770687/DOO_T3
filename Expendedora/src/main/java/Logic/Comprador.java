@@ -55,9 +55,8 @@ public class Comprador {
      * @throws NoHayProductoException Si el depósito del producto seleccionado no cuenta con stock.
      */
     public void comprarProducto( Constantes cual, Expendedor exp)
-            throws PagoIncorrectoException, PagoInsuficienteException, NoHayProductoException {
+            throws PagoIncorrectoException, PagoInsuficienteException, NoHayProductoException, DepositoEntregaLlenoException {
         exp.comprarProducto(cual);
-        this.vuelto = 0;
     }
 
     /**
@@ -86,6 +85,7 @@ public class Comprador {
      * @param exp La instancia de la máquina expendedora de donde se extraerá el vuelto.
      */
     public void recogerVuelto(Expendedor exp) {
+        this.vuelto = 0;
         Moneda mVuelto;
         while ((mVuelto = exp.getVuelto()) != null) {
             this.vuelto += mVuelto.getValor();

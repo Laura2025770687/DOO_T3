@@ -56,18 +56,20 @@ public class Expendedor {
      * @throws PagoIncorrectoException Si la moneda recibida es null.
      * @throws PagoInsuficienteException Si el valor de la moneda es menor al precio del producto.
      * @throws NoHayProductoException Si no quedan unidades en el depósito o el depósito no existe.
+     * @throws DepositoEntregaLlenoException Si la ranura de entrega de productos esta ocupada.
      */
     public void comprarProducto(Constantes cual)
-            throws PagoIncorrectoException, PagoInsuficienteException, NoHayProductoException{
+            throws PagoIncorrectoException, PagoInsuficienteException, NoHayProductoException, DepositoEntregaLlenoException{
         if (this.monedaEnRanura == null) {
             throw new PagoIncorrectoException("No se ha introducido ninguna moneda en la ranura.");
         }
         Moneda moneda = this.monedaEnRanura;
-        this.monedaEnRanura = null;
         Producto p = null;
         int vuelto = 0;
 
-        if(moneda.getValor() < cual.getPrecio()){
+        if (this.depEntrega.getProducto() != null) {
+            throw new DepositoEntregaLlenoException("La ranura de entrega de productos esta Llena, por favor retirar el producto.");
+        } else if(moneda.getValor() < cual.getPrecio()){
             depMonedasVuelto.addProducto(moneda);
             throw new PagoInsuficienteException("El valor de la moneda es inferior al precio del producto.");
         }
@@ -117,6 +119,7 @@ public class Expendedor {
                 vuelto -= 100;
             }
         }
+        this.monedaEnRanura = null;
         this.depEntrega.agregar(p);
     }
     /**
