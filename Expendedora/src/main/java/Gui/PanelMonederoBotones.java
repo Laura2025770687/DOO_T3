@@ -27,9 +27,9 @@ public class PanelMonederoBotones extends JPanel {
         mon500.setIcon(new ImageIcon("DOO_T3/Imagenes/Moneda500.png"));
         mon100.setIcon(new ImageIcon("DOO_T3/Imagenes/Moneda100.png"));
 
-        mon1000.setToolTipText("Insertar moneda de 1000");
-        mon500.setToolTipText("Insertar moneda de 500");
-        mon100.setToolTipText("Insertar moneda de 100");
+        mon1000.setToolTipText("Seleccionar moneda de 1000");
+        mon500.setToolTipText("Seleccionar moneda de 500");
+        mon100.setToolTipText("Seleccionar moneda de 100");
 
         mon1000.addActionListener(new ClickBottonExp(100, proxy));
         mon500.addActionListener(new ClickBottonExp(50, proxy));
