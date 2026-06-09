@@ -43,7 +43,7 @@ public class Deposito<T> {
      * @return producto deseado
      */
     public T askProducto(int i) {
-        if (dep.size() >= i)
+        if (dep.size() > i)
             return dep.get(i);
         else
             return null;

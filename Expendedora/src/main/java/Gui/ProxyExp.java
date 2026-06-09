@@ -13,11 +13,19 @@ public class ProxyExp {
     Expendedor Expen;
     Moneda MonAct = null;
     Comprador ComAct;
+    JPanel Inventario = null;
     public ProxyExp(int numProd){
         this.ComAct = new Comprador(5);
         this.Expen = new Expendedor(numProd);
     }
-
+    public void setInventario(JPanel inv){
+        Inventario = inv;
+    }
+    public void repaintInventario(){
+        if(Inventario!=null) {
+            Inventario.repaint();
+        }
+    }
     /**
      * El hacer click en un botton llama a esta funcion, el action listener manda un int de los casos que se pueden pedir
      * - el 0 es para insertar monedas, el cual depende de Panel Cliente (MonAct)
@@ -111,7 +119,7 @@ public class ProxyExp {
                 break;
 
         }
-
+        repaintInventario();
     }
 
     /**
@@ -200,10 +208,10 @@ public class ProxyExp {
     }
     public int DepProductoId(int askDep,int numProducto){
         Producto prod;
-        if (Producto.class.isInstance(askDeposito(askDep).askProducto(numProducto))){
-            prod = askDeposito(askDep).askProducto(numProducto);
-            return prod.getSerie();
-        }
+        //if (Producto.class.isInstance(askDeposito(askDep).askProducto(numProducto))){
+        //    prod = askDeposito(askDep).askProducto(numProducto);
+        //    return prod.getSerie();
+        //}
         return 0;
     }
 
