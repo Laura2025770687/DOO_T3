@@ -14,14 +14,9 @@ public class PanelInventario extends JPanel {
     int ConAc=1;
     ProxyExp Proxy;
     JLabel PanPrincipal;
-    ImageIcon CocaCola;
-    ImageIcon Sprite;
-    ImageIcon Fanta;
-    ImageIcon Snickers;
-    ImageIcon Super8;
-    ImageIcon mon100;
-    ImageIcon mon500;
-    ImageIcon mon1000;
+    VistaProductos Bebidas;
+    VistaProductos Snacks;
+    VistaMoneda Monedas;
     public PanelInventario(ProxyExp Proxy){
         this.setBackground(new Color(180,198,220));
         this.PanPrincipal = new JLabel();
@@ -29,14 +24,9 @@ public class PanelInventario extends JPanel {
         this.PanPrincipal.setSize(new Dimension(500,200));
         this.PanPrincipal.setBackground(new Color(220,220,220));
         this.Proxy = Proxy;
-        this.CocaCola = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/Pcoca.jpg").getImage().getScaledInstance(100, 250, Image.SCALE_DEFAULT));
-        this.Sprite = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/Psprite.jpg").getImage().getScaledInstance(100, 250, Image.SCALE_DEFAULT));
-        this.Fanta = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/Pfanta.png").getImage().getScaledInstance(100, 250, Image.SCALE_DEFAULT));
-        this.Snickers = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/Psnickers.png").getImage().getScaledInstance(100, 90, Image.SCALE_DEFAULT));
-        this.Super8 = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/Psuper8.png").getImage().getScaledInstance(100, 90, Image.SCALE_DEFAULT));
-        this.mon100 = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/Moneda100.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT));
-        this.mon500 = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/Moneda500.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT));
-        this.mon1000 = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/Moneda1000.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT));
+        this.Bebidas = new VistaProductos(100,250);
+        this.Snacks = new VistaProductos(100,90);
+        this.Monedas = new VistaMoneda(80,80);
     }
 
 
@@ -59,43 +49,43 @@ public class PanelInventario extends JPanel {
                 if (Proxy.askDeposito(c).askProducto(cc)!=null){
                     switch (c) {
                         case(1):
-                            b.drawImage(CocaCola.getImage(),v,i,this);
+                            b.drawImage(Bebidas.getImagen(1),v,i,this);
                             break;
                         case(2):
-                            b.drawImage(Sprite.getImage(),v,i,this);
+                            b.drawImage(Bebidas.getImagen(2),v,i,this);
                             break;
                         case(3):
-                            b.drawImage(Fanta.getImage(),v,i,this);
+                            b.drawImage(Bebidas.getImagen(3),v,i,this);
                             break;
                         case(4):
-                            b.drawImage(Snickers.getImage(),v,i,this);
+                            b.drawImage(Snacks.getImagen(4),v,i,this);
                             break;
                         case(5):
-                            b.drawImage(Super8.getImage(),v,i,this);
+                            b.drawImage(Snacks.getImagen(5),v,i,this);
                             break;
                         case(6):
                             switch (Proxy.DepMonVal(cc,6)) {
                                 case(100):
-                                    b.drawImage(mon100.getImage(), v, i, this);
+                                    b.drawImage(Monedas.getImagen(1), v, i, this);
                                     break;
                                 case(500):
-                                    b.drawImage(mon500.getImage(), v, i, this);
+                                    b.drawImage(Monedas.getImagen(2), v, i, this);
                                     break;
                                 case(1000):
-                                    b.drawImage(mon1000.getImage(), v, i, this);
+                                    b.drawImage(Monedas.getImagen(3), v, i, this);
                                     break;
                             }
                             break;
                         case(7):
                             switch (Proxy.DepMonVal(cc,7)) {
                                 case(100):
-                                    b.drawImage(mon100.getImage(), v, i, this);
+                                    b.drawImage(Monedas.getImagen(1), v, i, this);
                                     break;
                                 case(500):
-                                    b.drawImage(mon500.getImage(), v, i, this);
+                                    b.drawImage(Monedas.getImagen(2), v, i, this);
                                     break;
                                 case(1000):
-                                    b.drawImage(mon1000.getImage(), v, i, this);
+                                    b.drawImage(Monedas.getImagen(3), v, i, this);
                                     break;
                             }
                             break;
