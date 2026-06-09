@@ -4,8 +4,10 @@ import javax.swing.*;
 /**
  * Ventana la cual inicia los paneles
  */
-
 public class Ventana extends JFrame {
+    /**
+     * Crea el panel principal
+     */
     public Ventana() {
         JPanel a = new PanelPrincipal();
         this.add(a);
@@ -15,5 +17,4 @@ public class Ventana extends JFrame {
         this.setVisible(true);
         this.setResizable(false);
     }
-
 }

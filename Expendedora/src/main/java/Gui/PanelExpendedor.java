@@ -1,15 +1,19 @@
 package Gui;
 import javax.swing.*;
-import javax.swing.border.MatteBorder;
 import java.awt.*;
 
 /**
- *
+ *  Panel principal del expendedor
  */
 public class PanelExpendedor extends JPanel {
     JPanel Central;
     PanelExpVid Vidrio;
     PanelExpPro Productos;
+    /**
+     * Llama a el panel PanelExpPro y PanelExpVid para componerlo
+     * y delimita sus limites en la ventana
+     * @param Proxy
+     */
     public PanelExpendedor(ProxyExp Proxy){
         this.setOpaque(false);
         this.setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));

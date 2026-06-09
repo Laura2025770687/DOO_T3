@@ -6,21 +6,31 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Si el cliente es administrador puede ver el inventario
- * mueste un panel u otro dependiendo de la respuesta
- * (por ahora un placeholder)
+ * Panel iniciado en una ventana aparte, representa
+ * los depositos con sus contenidos y Id
  */
 public class PanelInventario extends JPanel {
-    int ConAc=1;
     ProxyExp Proxy;
     JLabel PanPrincipal;
     VistaProductos Bebidas;
     VistaProductos Snacks;
     VistaMoneda Monedas;
+    JButton Refill;
+    /**
+     * Se crea el espacio para escribir la cantidad de depósito y
+     * un Jbutton para hacer Refill, además de sus visuales
+     * @param Proxy para la comunicación entre los paneles y la lógica
+     */
     public PanelInventario(ProxyExp Proxy){
         this.setBackground(new Color(180,198,220));
         this.PanPrincipal = new JLabel();
+        this.Refill = new JButton();
+        this.Refill.add(new JLabel("Refill dep"));
+        this.Refill.addActionListener(new ClickBottonExp(99,Proxy));
+
         this.add(PanPrincipal);
+        this.add(Refill);
+
         this.PanPrincipal.setSize(new Dimension(500,200));
         this.PanPrincipal.setBackground(new Color(220,220,220));
         this.Proxy = Proxy;
@@ -28,8 +38,11 @@ public class PanelInventario extends JPanel {
         this.Snacks = new VistaProductos(200,200);
         this.Monedas = new VistaMoneda(80,80);
     }
-
-
+    /**
+     * Para visualizar el inventario se ocupan 2 ciclos for
+     * uno que eligue cuál de los depositos representar
+     * y uno que dibuja verticalmente cada producto
+     */
     @Override
     public void paintComponent(Graphics b) {
         super.paintComponent(b);

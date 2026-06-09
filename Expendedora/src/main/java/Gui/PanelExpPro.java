@@ -1,12 +1,10 @@
 package Gui;
 import javax.swing.*;
-import javax.swing.border.MatteBorder;
 import java.awt.*;
-
 /**
  * Panel donde se guardan los botones
- * Con un proxy los botones mandan la información al expendedor y
- * al Cliente
+ * Con un proxy los botones mandan la información
+ * al expendedor y al Cliente
  */
 public class PanelExpPro extends JPanel {
     JButton Moneda = new JButton();
@@ -17,6 +15,14 @@ public class PanelExpPro extends JPanel {
     JButton Super8 = new JButton();
     JButton Vuelto = new JButton();
     JButton Producto = new JButton();
+    /**
+     * Se instancian el panel y todos los botones en el siguiente orden
+     * 1-Agregar imagen visual
+     * 2-Agregar Toolkit
+     * 3-Agregar ActionListener para comunicacion con proxy
+     * 4-Agregar al panel
+     * @param Proxy Para la comunicacion entre los paneles y el proxy
+     */
     public PanelExpPro(ProxyExp Proxy){
         this.setMaximumSize(new Dimension(200,400));
         this.setMinimumSize(new Dimension(200,400));
@@ -61,7 +67,6 @@ public class PanelExpPro extends JPanel {
         this.add(Super8);
         this.add(Vuelto);
         this.add(Producto);
-
     }
     @Override
     public void paintComponent(Graphics g){

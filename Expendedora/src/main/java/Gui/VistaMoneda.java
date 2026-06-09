@@ -1,14 +1,21 @@
 package Gui;
-
 import javax.swing.*;
 import java.awt.*;
-
+/**
+ * Representacion visual de las Monedas
+ * Guarda la serie y el valor del la moneda si es necesario
+ */
 public class VistaMoneda {
     int Serie;
     int Valor;
     ImageIcon Mon100;
     ImageIcon Mon500;
     ImageIcon Mon1000;
+    /**
+     * Crea las posibles imagenes que puedan tomar
+     * @param x ancho deseado de la imagen
+     * @param y altura deseada de la imagen
+     */
     public VistaMoneda(int x,int y){ //80 80
         this.Mon100 = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/Moneda100.png").getImage().getScaledInstance(x, y, Image.SCALE_DEFAULT));
         this.Mon500 = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/Moneda500.png").getImage().getScaledInstance(x, y, Image.SCALE_DEFAULT));

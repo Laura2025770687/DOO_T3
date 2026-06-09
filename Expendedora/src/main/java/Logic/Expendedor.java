@@ -152,7 +152,11 @@ public class Expendedor {
         return depMonedasVuelto.getProducto();
     }
 
-    //funciones agregadas
+    /**
+     * Un getter para obtener los depositos
+     * @param Dep Cual deposito
+     * @return Deposito deseado
+     */
     public Deposito getDeposito(int Dep){
         switch (Dep){
             case (1):

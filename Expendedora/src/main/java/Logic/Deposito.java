@@ -35,8 +35,6 @@ public class Deposito<T> {
         else
             return null;
     }
-
-    //funciones argregadas
     /**
      * Da el producto sin sacarlo de su expendedor
      * @param i num del producto que sacamos
@@ -48,6 +46,12 @@ public class Deposito<T> {
         else
             return null;
     }
+
+    /**
+     * getter para el size del deposito
+     * siempre devuelve ints
+     * @return size
+     */
     public int size(){
         if (dep.size() == 0)
             return 0;

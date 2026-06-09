@@ -5,15 +5,17 @@ import java.awt.*;
 /**
  * JPanel principal que conecta y crea un JPanel que representa a la máquina expendedora
  * y otro que representa las vistas del comprador
+ * además crea una ventana la cual representa el inventario
  */
 public class PanelPrincipal extends JPanel{
     PanelExpendedor ExpP;
     PanelComprador ComP;
     ProxyExp Proxy;
     int CantExp;
-
     /**
-     * 
+     * Se crea un proxy el cual cada panel lo instancia en sus
+     * componetes y los componentes de ellos
+     * Crea el Jframe cual representa el deposito
      */
     public PanelPrincipal() {
         this.setLayout(new BoxLayout(this,BoxLayout.X_AXIS));

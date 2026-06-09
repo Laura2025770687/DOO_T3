@@ -1,8 +1,10 @@
 package Gui;
-
 import javax.swing.*;
 import java.awt.*;
-
+/**
+ * Representacion visual de los productos
+ * Guarda la serie y el id del producto si es necesario
+ */
 public class VistaProductos {
     int Serie;
     int Id;
@@ -11,6 +13,11 @@ public class VistaProductos {
     ImageIcon Fanta;
     ImageIcon Snickers;
     ImageIcon Super8;
+    /**
+     * Crea las posibles imagenes que puedan tomar
+     * @param x ancho deseado de la imagen
+     * @param y altura deseada de la imagen
+     */
     public VistaProductos(int x,int y){
         this.Cocacola = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/CocaColaProd.png").getImage().getScaledInstance(x, y, Image.SCALE_DEFAULT));
         this.Sprite = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/SpriteProd.png").getImage().getScaledInstance(x, y, Image.SCALE_DEFAULT));

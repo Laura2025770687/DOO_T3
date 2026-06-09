@@ -21,7 +21,6 @@ public class ClickBottonExp implements ActionListener {
         this.Button = Botton;
         Ask = Proxy;
     }
-
     /**
      * Una vez se presiona un JButton, se le da un número al proxy que identifica que debe hacer.
      * Cada que se presiona algún JButton, se vuelve a pintar toda la ventana para actualizar

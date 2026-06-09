@@ -111,7 +111,9 @@ public class ProxyExp {
             case(12):
                 consumirDesdeGUI(1);
                 break;
-
+            case(99):
+                refillInvetario();
+                break;
         }
         repaintInventario();
     }
@@ -184,16 +186,31 @@ public class ProxyExp {
         }
         repaintInventario();
     }
-    //codigo nuevo
 
+    /**
+     * Cuando se crea el inventario se agrega al proxy
+     * para actualizarlo con el proximo metodo
+     * @param inv
+     */
     public void setInventario(JPanel inv){
         Inventario = inv;
     }
+    /**
+     * Al inventario estar separado de las otras visuales
+     * para actualizar sus visuales se llama a hacer repaint
+     * cuando el proxy haga una acción
+     */
     public void repaintInventario(){
         if(Inventario!=null) {
             Inventario.repaint();
         }
     }
+    /**
+     * Pide un deposito para poder representarlo
+     * Ocupado por PanelInventario
+     * @param askDep cuál depósito es pedido
+     * @return Depósito deseado del Expendedor
+     */
     public Deposito askDeposito(int askDep){
         switch (askDep){
             case (1):
@@ -213,6 +230,15 @@ public class ProxyExp {
         }
         return null;
     }
+
+    /**
+     * Llama al getId del producto en el dep
+     * Llama a askDep() para codigo más limpio
+     * Usado por PanelInvetario
+     * @param askDep cuál depósito
+     * @param numProducto index del objeto
+     * @return Id del objeto
+     */
     public int DepProductoId(int askDep,int numProducto){
         if (askDeposito(askDep).askProducto(numProducto) instanceof Producto){
             return ((Producto) askDeposito(askDep).askProducto(numProducto)).getSerie();
@@ -221,12 +247,27 @@ public class ProxyExp {
         }
         return 0;
     }
+
+    /**
+     * Igual al metodo anterior pero para las monedas
+     * @param numProducto cual deposito
+     * @param i index de la moneda
+     * @return Valor de la moneda
+     */
     public int DepMonVal(int numProducto,int i){
         if (askDeposito(i).askProducto(numProducto) instanceof Moneda){
             return ((Moneda) askDeposito(i).askProducto(numProducto)).getValor();
         }
         return 0;
     }
+
+    /**
+     * Metodo que pide un numero para rellenar el inventario
+     */
+    public void refillInvetario(){
+        int CantExp = Integer.valueOf(JOptionPane.showInputDialog("Cantidad de Productos:"));
+    }
+
     public int identificarClase(Producto p) {
         if (p instanceof CocaCola) {
             return 0;

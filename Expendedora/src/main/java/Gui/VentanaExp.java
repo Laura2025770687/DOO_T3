@@ -2,10 +2,12 @@ package Gui;
 import javax.swing.*;
 
 /**
- * Ventana la cual inicia los paneles
+ * Ventana la cual crea el invetario
  */
-
 public class VentanaExp extends JFrame {
+    /**
+     * @param Proxy lo hereda al Jpanel inventario
+     */
     public VentanaExp(ProxyExp Proxy) {
         JPanel a = new PanelInventario(Proxy);
         Proxy.setInventario(a);
@@ -16,5 +18,4 @@ public class VentanaExp extends JFrame {
         this.setVisible(true);
         this.setResizable(false);
     }
-
 }
