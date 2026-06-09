@@ -19,6 +19,9 @@ public class PanelCompInvBotones extends JPanel {
         consumir1.addActionListener(new ClickBottonExp(11, proxy));
         consumir2.addActionListener(new ClickBottonExp(12, proxy));
 
+        consumir1.setToolTipText("Consumir producto 1");
+        consumir2.setToolTipText("Consumir producto 2");
+
         this.add(consumir1);
         this.add(consumir2);
     }
