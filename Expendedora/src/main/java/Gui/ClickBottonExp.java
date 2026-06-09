@@ -1,15 +1,10 @@
 package Gui;
 
-import Logic.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.*;
 
-/**
- * Action listener para cuando se genere un click
- * (por ahora sin usar)
- */
 public class ClickBottonExp implements ActionListener {
     int Button;
     ProxyExp Ask;
