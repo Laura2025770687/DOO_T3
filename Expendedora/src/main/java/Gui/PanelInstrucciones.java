@@ -17,10 +17,10 @@ public class PanelInstrucciones extends JPanel {
         this.setBackground(new Color(190,196,196));
 
         JLabel titulo = new JLabel("Instrucciones");
-        JLabel instr1 = new JLabel("1. Seleccione una moneda de su monedero");
-        JLabel instr2 = new JLabel("2. Inserte la moneda a la máquina");
-        JLabel instr3 = new JLabel("3. Seleccione su producto");
-        JLabel instr4 = new JLabel("4. Retire su vuelto y el producto");
+        JLabel instr1 = new JLabel("1. Seleccione una moneda de su monedero.");
+        JLabel instr2 = new JLabel("2. Inserte la moneda a la máquina.");
+        JLabel instr3 = new JLabel("3. Seleccione su producto.");
+        JLabel instr4 = new JLabel("4. Retire el producto y su vuelto, si corresponde.");
 
         titulo.setAlignmentX(Component.CENTER_ALIGNMENT);
         instr1.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -28,11 +28,11 @@ public class PanelInstrucciones extends JPanel {
         instr3.setAlignmentX(Component.CENTER_ALIGNMENT);
         instr4.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        titulo.setFont(new Font("Arial", Font.BOLD, 32));
-        instr1.setFont(new Font("Arial", Font.BOLD, 20));
-        instr2.setFont(new Font("Arial", Font.BOLD, 20));
-        instr3.setFont(new Font("Arial", Font.BOLD, 20));
-        instr4.setFont(new Font("Arial", Font.BOLD, 20));
+        titulo.setFont(new Font("Arial", Font.BOLD, 28));
+        instr1.setFont(new Font("Arial", Font.BOLD, 18));
+        instr2.setFont(new Font("Arial", Font.BOLD, 18));
+        instr3.setFont(new Font("Arial", Font.BOLD, 18));
+        instr4.setFont(new Font("Arial", Font.BOLD, 18));
 
         this.add(Box.createRigidArea(new Dimension(0,12)));
         this.add(titulo);
