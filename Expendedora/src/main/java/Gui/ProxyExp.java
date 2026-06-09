@@ -18,14 +18,6 @@ public class ProxyExp {
         this.ComAct = new Comprador(5);
         this.Expen = new Expendedor(numProd);
     }
-    public void setInventario(JPanel inv){
-        Inventario = inv;
-    }
-    public void repaintInventario(){
-        if(Inventario!=null) {
-            Inventario.repaint();
-        }
-    }
     /**
      * El hacer click en un botton llama a esta funcion, el action listener manda un int de los casos que se pueden pedir
      * - el 0 es para insertar monedas, el cual depende de Panel Cliente (MonAct)
@@ -188,6 +180,16 @@ public class ProxyExp {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Mochila Vacía", JOptionPane.WARNING_MESSAGE);
         }
     }
+    //codigo nuevo
+
+    public void setInventario(JPanel inv){
+        Inventario = inv;
+    }
+    public void repaintInventario(){
+        if(Inventario!=null) {
+            Inventario.repaint();
+        }
+    }
     public Deposito askDeposito(int askDep){
         switch (askDep){
             case (1):
@@ -203,19 +205,12 @@ public class ProxyExp {
         }
         return null;
     }
-    public int DepSize(int askDep){
-        return askDeposito(askDep).size();
-    }
     public int DepProductoId(int askDep,int numProducto){
-        Producto prod;
-        //if (Producto.class.isInstance(askDeposito(askDep).askProducto(numProducto))){
-        //    prod = askDeposito(askDep).askProducto(numProducto);
-        //    return prod.getSerie();
-        //}
+        if (askDeposito(askDep).askProducto(numProducto) instanceof Producto){
+            return ((Producto) askDeposito(askDep).askProducto(numProducto)).getSerie();
+        }
         return 0;
     }
-
-
 
     public int identificarClase(Producto p) {
         if (p instanceof CocaCola) {
