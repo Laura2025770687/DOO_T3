@@ -2,7 +2,6 @@ package Gui;
 
 import java.awt.*;
 
-//Valor y numeroSerie por ahora, se requiere una clase comprador en la lógica
 public class MonedaVisual {
     int x;
     int y;
@@ -18,10 +17,6 @@ public class MonedaVisual {
     public void setXY(int x, int y) {
         this.x = x;
         this.y = y;
-    }
-
-    public void quitarMoneda() {
-
     }
 
     public void paintComponent(Graphics g) {

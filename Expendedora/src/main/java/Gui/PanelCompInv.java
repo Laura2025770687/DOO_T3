@@ -1,9 +1,7 @@
 package Gui;
 
-import Logic.*;
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 public class PanelCompInv extends JPanel {
     ProxyExp proxy;
@@ -21,11 +19,11 @@ public class PanelCompInv extends JPanel {
         this.setPreferredSize(new Dimension(460, 220));
 
         this.proxy = proxy;
-        imgCo = new ImageIcon("DOO_T3/Imagenes/").getImage();
-        imgSp = new ImageIcon("DOO_T3/Imagenes/").getImage();
-        imgFa = new ImageIcon("DOO_T3/Imagenes/").getImage();
-        imgS8 = new ImageIcon("DOO_T3/Imagenes/").getImage();
-        imgSn = new ImageIcon("DOO_T3/Imagenes/").getImage();
+        imgCo = new ImageIcon("DOO_T3/Imagenes/CocaColaProd.png").getImage();
+        imgSp = new ImageIcon("DOO_T3/Imagenes/SpriteProd.png").getImage();
+        imgFa = new ImageIcon("DOO_T3/Imagenes/FantaProd.png").getImage();
+        imgS8 = new ImageIcon("DOO_T3/Imagenes/Super8Prod.png").getImage();
+        imgSn = new ImageIcon("DOO_T3/Imagenes/SnickersProd.png").getImage();
 
         botones = new PanelCompInvBotones(proxy);
         botones.setBounds(80, 40, 300, 130);
@@ -54,24 +52,28 @@ public class PanelCompInv extends JPanel {
         g.fillRect(80, 40, 130, 130);
         g.fillRect(250, 40, 130, 130);
 
-        ArrayList<Producto> inv = proxy.ComAct.getInventario();
-        for (int i = 0; i < inv.size(); i++) {
-            Producto p = inv.get(i);
-
+        for (int i = 0; i < proxy.ComAct.getInventario().size(); i++) {
+            int idenClase = proxy.identificarClase(proxy.ComAct.getInventario().get(i));
             int X;
-            if (i == 0) X = 80;
-            else X = 250;
+            if (i == 0) X = 70;
+            else X = 239;
 
-            if (p instanceof CocaCola) {
-                g.drawImage(imgCo,X,40,130,130,null);
-            } else if (p instanceof Sprite) {
-                g.drawImage(imgSp,X,40,130,130,null);
-            } else if (p instanceof Fanta) {
-                g.drawImage(imgFa,X,40,130,130,null);
-            } else if (p instanceof Super8) {
-                g.drawImage(imgS8,X,40,130,130,null);
-            } else {
-                g.drawImage(imgSn,X,40,130,130,null);
+            switch (idenClase) {
+                case(0):
+                    g.drawImage(imgCo, X - 5, 26, 160, 160, null);
+                    break;
+                case(1):
+                    g.drawImage(imgSp, X - 5, 26, 160, 160, null);
+                    break;
+                case(2):
+                    g.drawImage(imgFa, X - 5, 26, 160, 160, null);
+                    break;
+                case(3):
+                    g.drawImage(imgS8, X - 1, 31, 150, 150, null);
+                    break;
+                case(4):
+                    g.drawImage(imgSn, X - 1, 31, 150, 150, null);
+                    break;
             }
         }
     }

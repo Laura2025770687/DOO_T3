@@ -1,6 +1,6 @@
 package Gui;
-import Logic.*;
 
+import Logic.*;
 import javax.swing.*;
 
 /**
@@ -209,4 +209,18 @@ public class ProxyExp {
 
 
 
+    public int identificarClase(Producto p) {
+        if (p instanceof CocaCola) {
+            return 0;
+        } else if (p instanceof Sprite) {
+            return 1;
+        } else if (p instanceof Fanta) {
+            return 2;
+        } else if (p instanceof Super8) {
+            return 3;
+        } else if (p instanceof Snickers) {
+            return 4;
+        }
+        return -1;
+    }
 }

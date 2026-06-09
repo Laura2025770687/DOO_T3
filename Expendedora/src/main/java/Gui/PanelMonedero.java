@@ -1,23 +1,14 @@
 package Gui;
 
-import Logic.Moneda;
-
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 public class PanelMonedero extends JPanel {
     PanelMonederoBotones botones;
     MonedaVisual mon;
     ProxyExp proxy;
-    ArrayList<Moneda> monedero1000;
-    ArrayList<Moneda> monedero500;
-    ArrayList<Moneda> monedero100;
     PanelMonedero(ProxyExp proxy) {
         this.proxy = proxy;
-        this.monedero1000 = proxy.ComAct.getMonedero(1000);
-        this.monedero500 = proxy.ComAct.getMonedero(500);
-        this.monedero100 = proxy.ComAct.getMonedero(100);
         this.setLayout(new BorderLayout());
         this.setMaximumSize(new Dimension(440, 360));
 
@@ -38,9 +29,9 @@ public class PanelMonedero extends JPanel {
         g.setFont(new Font("Arial", Font.BOLD, 20));
         g.drawString("Monedero:", 175,20);
 
-        for (int i = 0; i < monedero1000.size(); i++) {
-            mon = new MonedaVisual(proxy, monedero1000.get(i).getValor(),
-                                   monedero1000.get(i).getSerie());
+        for (int i = 0; i < proxy.ComAct.getMonedero(1000).size(); i++) {
+            mon = new MonedaVisual(proxy, proxy.ComAct.getMonedero(1000).get(i).getValor(),
+                    proxy.ComAct.getMonedero(1000).get(i).getSerie());
 
             g.setColor(new Color(255,255,0));
             if (i < 7) {
@@ -52,14 +43,14 @@ public class PanelMonedero extends JPanel {
             } else {
                 g.setColor(Color.BLACK);
                 g.setFont(new Font("Arial", Font.BOLD, 12));
-                g.drawString("+" + String.valueOf(monedero1000.size() - 14),
+                g.drawString("+" + String.valueOf(proxy.ComAct.getMonedero(1000).size() - 14),
                              14,76);
             }
         }
 
-        for (int i = 0; i < monedero500.size(); i++) {
-            mon = new MonedaVisual(proxy, monedero500.get(i).getValor(),
-                                   monedero500.get(i).getSerie());
+        for (int i = 0; i < proxy.ComAct.getMonedero(500).size(); i++) {
+            mon = new MonedaVisual(proxy, proxy.ComAct.getMonedero(500).get(i).getValor(),
+                    proxy.ComAct.getMonedero(500).get(i).getSerie());
 
             g.setColor(new Color(128,128,128));
             if (i < 7) {
@@ -71,14 +62,14 @@ public class PanelMonedero extends JPanel {
             } else {
                 g.setColor(Color.BLACK);
                 g.setFont(new Font("Arial", Font.BOLD, 12));
-                g.drawString("+" + String.valueOf(monedero500.size() - 14),
+                g.drawString("+" + String.valueOf(proxy.ComAct.getMonedero(500).size() - 14),
                         14,186);
             }
         }
 
-        for (int i = 0; i < monedero100.size(); i++) {
-            mon = new MonedaVisual(proxy, monedero100.get(i).getValor(),
-                                   monedero100.get(i).getSerie());
+        for (int i = 0; i < proxy.ComAct.getMonedero(100).size(); i++) {
+            mon = new MonedaVisual(proxy, proxy.ComAct.getMonedero(100).get(i).getValor(),
+                    proxy.ComAct.getMonedero(100).get(i).getSerie());
 
             g.setColor(new Color(175,115,85));
             if (i < 7) {
@@ -90,7 +81,7 @@ public class PanelMonedero extends JPanel {
             } else {
                 g.setColor(Color.BLACK);
                 g.setFont(new Font("Arial", Font.BOLD, 12));
-                g.drawString("+" + String.valueOf(monedero100.size() - 14),
+                g.drawString("+" + String.valueOf(proxy.ComAct.getMonedero(100).size() - 14),
                         14,296);
             }
         }
