@@ -3,10 +3,20 @@ package Gui;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * JPanel que contiene los botones para seleccionar una moneda del monedero del comprador
+ */
 public class PanelMonederoBotones extends JPanel {
     JButton mon1000 = new JButton();
     JButton mon500 = new JButton();
     JButton mon100 = new JButton();
+
+    /**
+     * Método que inicializa el JPanel y añade sus botones, usa Grid Layout en vertical con un área de
+     * 55 píxeles de ancho por 260 píxeles de alto para representar los botones para seleccionar moneda.
+     * Usa las imágenes de moneda de los recursos del proyecto como iconos para los botones.
+     * @param proxy el proxy para conectar los botones con una función lógica cuando se presionan.
+     */
     public PanelMonederoBotones(ProxyExp proxy) {
         this.setPreferredSize(new Dimension(55,260));
         this.setBorder(BorderFactory.createEmptyBorder(22,0,0,0));
