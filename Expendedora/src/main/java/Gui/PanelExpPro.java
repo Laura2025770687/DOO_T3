@@ -9,7 +9,7 @@ import java.awt.*;
  * al Cliente
  */
 public class PanelExpPro extends JPanel {
-    JButton Monedas = new JButton();
+    JButton Moneda = new JButton();
     JButton Cocacola = new JButton();
     JButton Sprite = new JButton();
     JButton Fanta = new JButton();
@@ -23,11 +23,10 @@ public class PanelExpPro extends JPanel {
         this.setLayout(new GridLayout(8,1));
         this.setBorder(BorderFactory.createEmptyBorder(20, 5, 20, 5));
 
-        //this.setBorder(new MatteBorder(1,1,1,1,Color.RED));
         this.setOpaque(false);
         this.setBackground(Color.BLUE);
 
-        Monedas.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/CasillaMon.png")));
+        Moneda.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/CasillaMon.png")));
         Cocacola.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/Cocacola.png")));
         Sprite.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/Sprite.png")));
         Fanta.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/Fanta.png")));
@@ -36,8 +35,8 @@ public class PanelExpPro extends JPanel {
         Vuelto.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/Vuelto.png")));
         Producto.add(new JLabel(new ImageIcon("DOO_T3/Imagenes/Producto.png")));
 
-        Monedas.setToolTipText("Meter monedas");
-        Cocacola.setToolTipText("Comprar Cocacola");
+        Moneda.setToolTipText("Insertar moneda");
+        Cocacola.setToolTipText("Comprar CocaCola");
         Sprite.setToolTipText("Comprar Sprite");
         Fanta.setToolTipText("Comprar Fanta");
         Snickers.setToolTipText("Comprar Snickers");
@@ -45,7 +44,7 @@ public class PanelExpPro extends JPanel {
         Vuelto.setToolTipText("Sacar Vuelto");
         Producto.setToolTipText("Sacar Producto");
 
-        Monedas.addActionListener(new ClickBottonExp(0,Proxy));
+        Moneda.addActionListener(new ClickBottonExp(0,Proxy));
         Cocacola.addActionListener(new ClickBottonExp(1,Proxy));
         Sprite.addActionListener(new ClickBottonExp(2,Proxy));
         Fanta.addActionListener(new ClickBottonExp(3,Proxy));
@@ -54,7 +53,7 @@ public class PanelExpPro extends JPanel {
         Vuelto.addActionListener(new ClickBottonExp(6,Proxy));
         Producto.addActionListener(new ClickBottonExp(7,Proxy));
 
-        this.add(Monedas);
+        this.add(Moneda);
         this.add(Cocacola);
         this.add(Sprite);
         this.add(Fanta);
