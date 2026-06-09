@@ -28,19 +28,6 @@ public class ProxyExp {
      */
     public void actionBotton(int Botton){
         switch (Botton){
-
-            case (10):
-                seleccionarMonedaDesdeGUI(100);
-                break;
-
-            case (50):
-                seleccionarMonedaDesdeGUI(500);
-                break;
-
-            case (100):
-                seleccionarMonedaDesdeGUI(1000);
-                break;
-
             case (0):
                 try {
                     Expen.insertarMonedaEnRanura(this.MonAct);
@@ -90,10 +77,10 @@ public class ProxyExp {
                 break;
             case (7):
                 try {
-                    ComAct.guardarProducto(Expen);
+                    int indice = ComAct.guardarProducto(Expen);
 
                     JOptionPane.showMessageDialog(null,
-                            "¡Producto retirado de la máquina y guardado en tu inventario con éxito! (Espacio utilizado: " + ComAct.getInventario().size() + "/2)",
+                            "¡Producto retirado de la máquina y guardado en tu inventario con éxito! (Espacio utilizado: " + indice + "/2)",
                             "Inventario",
                             JOptionPane.INFORMATION_MESSAGE);
 
@@ -104,29 +91,27 @@ public class ProxyExp {
 
                 }
                 break;
+            case (10):
+                seleccionarMonedaDesdeGUI(100);
+                break;
+
+            case (50):
+                seleccionarMonedaDesdeGUI(500);
+                break;
+
+            case (100):
+                seleccionarMonedaDesdeGUI(1000);
+                break;
+
             case(11):
-                try {
-                    ComAct.consumirProducto(0);
-                    JOptionPane.showMessageDialog(null,
-                                        "Sabor " + ComAct.getSabor(), "Producto consumido",
-                                                 JOptionPane.INFORMATION_MESSAGE);
-                } catch (RanuraInventarioVaciaException e) {
-                    JOptionPane.showMessageDialog(null, e.getMessage(),
-                            "Ranura Vacía", JOptionPane.ERROR_MESSAGE);
-                }
+                consumirDesdeGUI(0);
                 break;
             case(12):
-                try {
-                    ComAct.consumirProducto(1);
-                    JOptionPane.showMessageDialog(null,
-                            "Sabor " + ComAct.getSabor(), "Producto consumido",
-                                     JOptionPane.INFORMATION_MESSAGE);
-                } catch (RanuraInventarioVaciaException e) {
-                    JOptionPane.showMessageDialog(null, e.getMessage(),
-                            "Ranura Vacía", JOptionPane.ERROR_MESSAGE);
-                }
+                consumirDesdeGUI(1);
                 break;
+
         }
+
     }
 
     /**
@@ -182,4 +167,18 @@ public class ProxyExp {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error en la Compra", JOptionPane.ERROR_MESSAGE);
         }
     }
+    private void consumirDesdeGUI(int indice){
+        try {
+            ComAct.consumirProducto(indice);
+
+            JOptionPane.showMessageDialog(null,
+                    "¡Glup, glup! Qué delicioso sabor a " + ComAct.getSabor() + ".",
+                    "Consumir Producto",
+                    JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (RanuraInventarioVaciaException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Mochila Vacía", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
 }

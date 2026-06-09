@@ -76,6 +76,8 @@ public class Expendedor {
         else if(cual.getNumProducto() == Constantes.COCACOLA.getNumProducto()) {
             p = depCocaCola.getProducto();
             if(p == null){
+                depMonedasVuelto.addProducto(moneda);
+                this.monedaEnRanura = null;
                 throw new NoHayProductoException("El producto no está disponible.");
 
             }
@@ -84,6 +86,8 @@ public class Expendedor {
         }else if(cual.getNumProducto() == Constantes.SPRITE.getNumProducto()){
             p = depSprite.getProducto();
             if(p == null){
+                depMonedasVuelto.addProducto(moneda);
+                this.monedaEnRanura = null;
                 throw new NoHayProductoException("El producto no está disponible.");
             }
             vuelto = moneda.getValor() - Constantes.SPRITE.getPrecio();
@@ -91,23 +95,29 @@ public class Expendedor {
         }else if(cual.getNumProducto() == Constantes.FANTA.getNumProducto()){
             p = depFanta.getProducto();
             if(p == null){
+                depMonedasVuelto.addProducto(moneda);
+                this.monedaEnRanura = null;
                 throw new NoHayProductoException("El producto no está disponible.");
             }
             vuelto = moneda.getValor() - Constantes.FANTA.getPrecio();
 
-        }else if(cual.getNumProducto() == Constantes.SNICKERS.getNumProducto()){
-            p = depSnickers.getProducto();
-            if(p == null){
-                throw new NoHayProductoException("El producto no está disponible.");
-            }
-            vuelto = moneda.getValor() - Constantes.SNICKERS.getPrecio();
-
         }else if(cual.getNumProducto() == Constantes.SUPER8.getNumProducto()){
             p = depSuper8s.getProducto();
             if(p == null){
+                depMonedasVuelto.addProducto(moneda);
+                this.monedaEnRanura = null;
                 throw new NoHayProductoException("El producto no está disponible.");
             }
             vuelto = moneda.getValor() - Constantes.SUPER8.getPrecio();
+
+        }else if(cual.getNumProducto() == Constantes.SNICKERS.getNumProducto()){
+            p = depSnickers.getProducto();
+            if(p == null){
+                depMonedasVuelto.addProducto(moneda);
+                this.monedaEnRanura = null;
+                throw new NoHayProductoException("El producto no está disponible.");
+            }
+            vuelto = moneda.getValor() - Constantes.SNICKERS.getPrecio();
 
         }
         while(vuelto > 0){
