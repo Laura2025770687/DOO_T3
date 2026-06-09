@@ -24,8 +24,8 @@ public class PanelInventario extends JPanel {
         this.PanPrincipal.setSize(new Dimension(500,200));
         this.PanPrincipal.setBackground(new Color(220,220,220));
         this.Proxy = Proxy;
-        this.Bebidas = new VistaProductos(100,250);
-        this.Snacks = new VistaProductos(100,90);
+        this.Bebidas = new VistaProductos(200,370);
+        this.Snacks = new VistaProductos(200,200);
         this.Monedas = new VistaMoneda(80,80);
     }
 
@@ -49,19 +49,19 @@ public class PanelInventario extends JPanel {
                 if (Proxy.askDeposito(c).askProducto(cc)!=null){
                     switch (c) {
                         case(1):
-                            b.drawImage(Bebidas.getImagen(1),v,i,this);
+                            b.drawImage(Bebidas.getImagen(1),v-50,i-30,this);
                             break;
                         case(2):
-                            b.drawImage(Bebidas.getImagen(2),v,i,this);
+                            b.drawImage(Bebidas.getImagen(2),v-50,i-30,this);
                             break;
                         case(3):
-                            b.drawImage(Bebidas.getImagen(3),v,i,this);
+                            b.drawImage(Bebidas.getImagen(3),v-50,i-30,this);
                             break;
                         case(4):
-                            b.drawImage(Snacks.getImagen(4),v,i,this);
+                            b.drawImage(Snacks.getImagen(4),v-50,i-20,this);
                             break;
                         case(5):
-                            b.drawImage(Snacks.getImagen(5),v,i,this);
+                            b.drawImage(Snacks.getImagen(5),v-50,i-20,this);
                             break;
                         case(6):
                             switch (Proxy.DepMonVal(cc,6)) {
