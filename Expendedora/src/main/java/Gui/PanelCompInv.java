@@ -1,9 +1,7 @@
 package Gui;
 
-import Logic.*;
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 public class PanelCompInv extends JPanel {
     ProxyExp proxy;
@@ -54,24 +52,23 @@ public class PanelCompInv extends JPanel {
         g.fillRect(80, 40, 130, 130);
         g.fillRect(250, 40, 130, 130);
 
-        ArrayList<Producto> inv = proxy.ComAct.getInventario();
-        for (int i = 0; i < inv.size(); i++) {
-            Producto p = inv.get(i);
-
+        for (int i = 0; i < proxy.ComAct.getInventario().size(); i++) {
+            int idenClase = proxy.identificarClase(proxy.ComAct.getInventario().get(i));
             int X;
             if (i == 0) X = 80;
             else X = 250;
 
-            if (p instanceof CocaCola) {
-                g.drawImage(imgCo,X,40,130,130,null);
-            } else if (p instanceof Sprite) {
-                g.drawImage(imgSp,X,40,130,130,null);
-            } else if (p instanceof Fanta) {
-                g.drawImage(imgFa,X,40,130,130,null);
-            } else if (p instanceof Super8) {
-                g.drawImage(imgS8,X,40,130,130,null);
-            } else {
-                g.drawImage(imgSn,X,40,130,130,null);
+            switch (idenClase) {
+                case(0):
+                    g.drawImage(imgCo, X, 40, 130, 130, null);
+                case(1):
+                    g.drawImage(imgSp, X, 40, 130, 130, null);
+                case(2):
+                    g.drawImage(imgFa, X, 40, 130, 130, null);
+                case(3):
+                    g.drawImage(imgS8, X, 40, 130, 130, null);
+                case(4):
+                    g.drawImage(imgSn, X, 40, 130, 130, null);
             }
         }
     }
