@@ -1,6 +1,7 @@
 package Gui;
 
 import Logic.*;
+
 import javax.swing.*;
 
 /**
@@ -18,6 +19,7 @@ public class ProxyExp {
         this.ComAct = new Comprador(5);
         this.Expen = new Expendedor(numProd);
     }
+
     /**
      * El hacer click en un botton llama a esta funcion, el action listener manda un int de los casos que se pueden pedir
      * - el 0 es para insertar monedas, el cual depende de Panel Cliente (MonAct)
@@ -211,7 +213,6 @@ public class ProxyExp {
         }
         return 0;
     }
-
     public int identificarClase(Producto p) {
         if (p instanceof CocaCola) {
             return 0;

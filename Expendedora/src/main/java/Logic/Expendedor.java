@@ -71,6 +71,7 @@ public class Expendedor {
             throw new DepositoEntregaLlenoException("La ranura de entrega de productos esta Llena, por favor retirar el producto.");
         } else if(moneda.getValor() < cual.getPrecio()){
             depMonedasVuelto.addProducto(moneda);
+            this.monedaEnRanura = null;
             throw new PagoInsuficienteException("El valor de la moneda es inferior al precio del producto.");
         }
         else if(cual.getNumProducto() == Constantes.COCACOLA.getNumProducto()) {
