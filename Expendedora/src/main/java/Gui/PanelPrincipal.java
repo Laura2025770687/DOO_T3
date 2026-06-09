@@ -19,13 +19,7 @@ public class PanelPrincipal extends JPanel{
         this.setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
         CantExp = Integer.valueOf(JOptionPane.showInputDialog("Cantidad de Productos:"));
         this.Proxy = new ProxyExp(CantExp);
-
-        int ConAc=1;
-        Object[] Acceso = {"SI", "NO"};
-        ConAc = JOptionPane.showOptionDialog(null, "Tienes acceso a inventario?", "Acceso", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, Acceso, Acceso[0]);
-        if (ConAc==0) {
-            JFrame b = new VentanaExp(Proxy);
-        }
+        JFrame b = new VentanaExp(Proxy);
 
         this.ExpP = new PanelExpendedor(Proxy);
         ExpP.setMaximumSize(new Dimension(460,790));

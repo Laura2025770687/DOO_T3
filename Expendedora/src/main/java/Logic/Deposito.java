@@ -49,6 +49,9 @@ public class Deposito<T> {
             return null;
     }
     public int size(){
-        return dep.size();
+        if (dep.size() == 0)
+            return 0;
+        else
+            return dep.size();
     }
 }
