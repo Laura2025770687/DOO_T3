@@ -10,6 +10,7 @@ public class Expendedor {
     private Deposito<Snickers> depSnickers;
     private Deposito<Super8> depSuper8s;
     private Deposito<Moneda> depMonedasVuelto;
+    private Deposito<Moneda> depMonedasUsadas;
     private DepositoEntrega depEntrega;
     private Moneda monedaEnRanura = null;
 
@@ -25,6 +26,7 @@ public class Expendedor {
         this.depSnickers = new Deposito<Snickers>();
         this.depSuper8s = new Deposito<Super8>();
         this.depMonedasVuelto = new Deposito<Moneda>();
+        this.depMonedasUsadas = new Deposito<Moneda>();
         this.depEntrega = new DepositoEntrega();
         for(int i = 0; i < llenarDepositos; i++){
             this.depCocaCola.addProducto(new CocaCola());
@@ -130,6 +132,7 @@ public class Expendedor {
                 vuelto -= 100;
             }
         }
+        depMonedasUsadas.addProducto(monedaEnRanura);
         this.monedaEnRanura = null;
         this.depEntrega.agregar(p);
     }
@@ -162,6 +165,10 @@ public class Expendedor {
                 return depSnickers;
             case (5):
                 return depSuper8s;
+            case (6):
+                return depMonedasVuelto;
+            case (7):
+                return depMonedasUsadas;
         }
         return null;
     }

@@ -144,6 +144,7 @@ public class ProxyExp {
         } catch (PagoIncorrectoException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error de Fondos", JOptionPane.ERROR_MESSAGE);
         }
+        repaintInventario();
     }
 
     /**
@@ -181,6 +182,7 @@ public class ProxyExp {
         } catch (RanuraInventarioVaciaException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Mochila Vacía", JOptionPane.WARNING_MESSAGE);
         }
+        repaintInventario();
     }
     //codigo nuevo
 
@@ -204,12 +206,24 @@ public class ProxyExp {
                 return Expen.getDeposito(4);
             case (5):
                 return Expen.getDeposito(5);
+            case (6):
+                return Expen.getDeposito(6);
+            case (7):
+                return Expen.getDeposito(7);
         }
         return null;
     }
     public int DepProductoId(int askDep,int numProducto){
         if (askDeposito(askDep).askProducto(numProducto) instanceof Producto){
             return ((Producto) askDeposito(askDep).askProducto(numProducto)).getSerie();
+        } else if (askDeposito(askDep).askProducto(numProducto) instanceof Moneda) {
+            return ((Moneda) askDeposito(askDep).askProducto(numProducto)).getSerie();
+        }
+        return 0;
+    }
+    public int DepMonVal(int numProducto,int i){
+        if (askDeposito(i).askProducto(numProducto) instanceof Moneda){
+            return ((Moneda) askDeposito(i).askProducto(numProducto)).getValor();
         }
         return 0;
     }
