@@ -12,9 +12,9 @@ public class VentanaExp extends JFrame {
         this.add(a);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setTitle("Inventario");
-        this.setSize(830,830);
+        this.setSize(800,830);
         this.setVisible(true);
-        this.setResizable(true);
+        this.setResizable(false);
     }
 
 }
