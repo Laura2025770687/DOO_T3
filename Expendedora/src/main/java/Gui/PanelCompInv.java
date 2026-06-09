@@ -44,7 +44,7 @@ public class PanelCompInv extends JPanel {
 
         g.setColor((Color.BLACK));
         g.setFont(new Font("Arial", Font.BOLD, 20));
-        g.drawString("Inventario:", 179, 0);
+        g.drawString("Inventario:", 179, 24);
 
         g.setColor(new Color(70, 70, 200));
         g.fillRect(75, 35, 140, 140);
