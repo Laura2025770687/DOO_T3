@@ -172,7 +172,7 @@ public class ProxyExp {
             ComAct.consumirProducto(indice);
 
             JOptionPane.showMessageDialog(null,
-                    "¡Glup, glup! Qué delicioso sabor a " + ComAct.getSabor() + ".",
+                    "Qué delicioso sabor a " + ComAct.getSabor() + ".",
                     "Consumir Producto",
                     JOptionPane.INFORMATION_MESSAGE);
 
