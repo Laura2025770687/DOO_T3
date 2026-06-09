@@ -65,11 +65,11 @@ public class ProxyExp {
                 break;
 
             case (4):
-                procesarCompra(Constantes.SUPER8);
+                procesarCompra(Constantes.SNICKERS);
                 break;
 
             case (5):
-                procesarCompra(Constantes.SNICKERS);
+                procesarCompra(Constantes.SUPER8);
                 break;
 
             case (6):
