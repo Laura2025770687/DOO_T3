@@ -274,6 +274,12 @@ public class ProxyExp {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    /**
+     * Método que se encarga de entregar un número identificativo según el tipo de subclase que es un producto
+     * @param p el producto a comprobar qué tipo de subclase es
+     * @return el número que identifica su respectiva subclase
+     */
     public int identificarClase(Producto p) {
         if (p instanceof CocaCola) {
             return 0;
