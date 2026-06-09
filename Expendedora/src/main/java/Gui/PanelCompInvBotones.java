@@ -16,11 +16,13 @@ public class PanelCompInvBotones extends JPanel {
         consumir2.setContentAreaFilled(false);
         consumir2.setBorderPainted(false);
 
+        // Tooltips para indicarle al usuario qué hace el click invisible
+        consumir1.setToolTipText("Consumir primer producto del inventario");
+        consumir2.setToolTipText("Consumir segundo producto del inventario");
+
+        // Conexion con el proxy
         consumir1.addActionListener(new ClickBottonExp(11, proxy));
         consumir2.addActionListener(new ClickBottonExp(12, proxy));
-
-        consumir1.setToolTipText("Consumir producto 1");
-        consumir2.setToolTipText("Consumir producto 2");
 
         this.add(consumir1);
         this.add(consumir2);

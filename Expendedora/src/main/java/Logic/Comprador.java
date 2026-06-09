@@ -23,6 +23,8 @@ public class Comprador {
         this.monedero500 = new ArrayList<>();
         this.monedero100 = new ArrayList<>();
         this.inventario = new ArrayList<>();
+        this.inventario.add(null);
+        this.inventario.add(null);
         this.sabor = null;
         this.vuelto = 0;
 
@@ -77,17 +79,23 @@ public class Comprador {
      * @throws InventarioLlenoException Si el inventario del comprador ya alcanzó su capacidad máxima de 2 elementos.
      * @throws NoHayProductoException Si se intenta retirar un producto pero la ranura de entrega está vacía.
      */
-    public void guardarProducto(Expendedor exp) throws InventarioLlenoException, NoHayProductoException {
-        if (this.inventario.size() >= 2) {
+    public int guardarProducto(Expendedor exp) throws InventarioLlenoException, NoHayProductoException {
+        if (this.inventario.get(0) != null && this.inventario.get(1) != null) {
             throw new InventarioLlenoException("¡Mochila llena! Debes consumir un producto antes de poder retirar otro.");
         }
-
         Producto p = exp.getProducto();
         if (p == null) {
             throw new NoHayProductoException("La ranura de entrega está vacía. No hay ningún producto para retirar.");
         }
-
-        this.inventario.add(p);
+        int indice = 0;
+        if(this.inventario.get(0) == null){
+            this.inventario.set(0, p);
+            indice = 1;
+        }else if(this.inventario.get(1) == null){
+            this.inventario.set(1, p);
+            indice = 2;
+        }
+        return indice;
     }
 
     /**
@@ -115,17 +123,11 @@ public class Comprador {
      * @throws RanuraInventarioVaciaException Si el índice proporcionado es inválido o el inventario está vacío.
      */
     public void consumirProducto(int indice) throws RanuraInventarioVaciaException {
-        if (indice < 0 || indice >= inventario.size()) {
+        if (inventario.get(indice) == null) {
             throw new RanuraInventarioVaciaException("No hay ningún producto en la ranura seleccionada de la mochila.");
         }
-
-        if (indice == 0 && inventario.get(0) == null) {
-            throw new RanuraInventarioVaciaException("La ranura está vacía");
-        } else if (indice == 1 && inventario.get(1) == null) {
-            throw new RanuraInventarioVaciaException("La ranura está vacía");
-        }
-
-        Producto p = this.inventario.remove(indice);
+        Producto p = this.inventario.get(indice);
+        this.inventario.set(indice, null);
         this.sabor = p.consumir();
     }
 
