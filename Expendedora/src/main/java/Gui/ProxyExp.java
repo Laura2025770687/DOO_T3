@@ -262,12 +262,18 @@ public class ProxyExp {
     }
 
     /**
-     * Metodo que pide un numero para rellenar el inventario
+     *
+     * @throws NumberFormatException
      */
-    public void refillInvetario(){
-        int CantExp = Integer.valueOf(JOptionPane.showInputDialog("Cantidad de Productos:"));
+    public void refillInvetario() throws NumberFormatException{
+        try {
+            String CantExp = JOptionPane.showInputDialog("Cantidad de Productos:");
+            Integer.valueOf(CantExp);
+        }
+        catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
-
     public int identificarClase(Producto p) {
         if (p instanceof CocaCola) {
             return 0;

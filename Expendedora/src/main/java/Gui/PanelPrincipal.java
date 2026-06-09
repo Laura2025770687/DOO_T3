@@ -19,7 +19,19 @@ public class PanelPrincipal extends JPanel{
      */
     public PanelPrincipal() {
         this.setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
-        CantExp = Integer.valueOf(JOptionPane.showInputDialog("Cantidad de Productos:"));
+
+        int error=0;
+        while(error==0){
+            try {
+                CantExp = Integer.valueOf(JOptionPane.showInputDialog("Cantidad de Productos:"));
+                error=1;
+            }
+            catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                error=0;
+            }
+        }
+
         this.Proxy = new ProxyExp(CantExp);
         JFrame b = new VentanaExp(Proxy);
 
