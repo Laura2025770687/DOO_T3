@@ -10,10 +10,17 @@ import java.awt.*;
  */
 public class PanelInventario extends JPanel {
     int ConAc=1;
+    JLabel PanPrincipal;
+    JPanel PanCoca;
+    JPanel PanSprite;
+    JPanel PanFanta;
+    JPanel PanSnickers;
+    JPanel PanSuper8;
     JPanel Inv = new JPanel();
     public PanelInventario(ProxyExp Proxy){
-
-
+        this.setLayout(new BorderLayout());
+        this.PanPrincipal = new JLabel();
+        PanPrincipal.setText("Cocacola: "+ Proxy.askDeposito(1).size() +"\n Sprite: ");
     }
     @Override
     public void paintComponent(Graphics b) {

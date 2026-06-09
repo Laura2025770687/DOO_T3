@@ -35,4 +35,20 @@ public class Deposito<T> {
         else
             return null;
     }
+
+    //funciones argregadas
+    /**
+     * Da el producto sin sacarlo de su expendedor
+     * @param i num del producto que sacamos
+     * @return producto deseado
+     */
+    public T askProducto(int i) {
+        if (dep.size() >= i)
+            return dep.get(i);
+        else
+            return null;
+    }
+    public int size(){
+        return dep.size();
+    }
 }

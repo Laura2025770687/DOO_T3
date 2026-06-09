@@ -67,7 +67,5 @@ public class PanelExpPro extends JPanel {
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        ImageIcon Placeholder = new ImageIcon(new ImageIcon("DOO_T3/Imagenes/PlaceHolder.jpg").getImage().getScaledInstance(250, 400, Image.SCALE_DEFAULT));
-        //g.drawImage(Placeholder.getImage(),+10,10,this);
     }
 }

@@ -147,4 +147,21 @@ public class Expendedor {
     public Moneda getVuelto(){
         return depMonedasVuelto.getProducto();
     }
+
+    //funciones agregadas
+    public Deposito getDeposito(int Dep){
+        switch (Dep){
+            case (1):
+                return depCocaCola;
+            case (2):
+                return depSprite;
+            case (3):
+                return depFanta;
+            case (4):
+                return depSnickers;
+            case (5):
+                return depSuper8s;
+        }
+        return null;
+    }
 }

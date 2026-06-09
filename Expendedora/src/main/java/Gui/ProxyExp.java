@@ -180,6 +180,33 @@ public class ProxyExp {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Mochila Vacía", JOptionPane.WARNING_MESSAGE);
         }
     }
+    public Deposito askDeposito(int askDep){
+        switch (askDep){
+            case (1):
+                return Expen.getDeposito(1);
+            case (2):
+                return Expen.getDeposito(2);
+            case (3):
+                return Expen.getDeposito(3);
+            case (4):
+                return Expen.getDeposito(4);
+            case (5):
+                return Expen.getDeposito(5);
+        }
+        return null;
+    }
+    public int DepSize(int askDep){
+        return askDeposito(askDep).size();
+    }
+    public int DepProductoId(int askDep,int numProducto){
+        Producto prod;
+        if (Producto.class.isInstance(askDeposito(askDep).askProducto(numProducto))){
+            prod = askDeposito(askDep).askProducto(numProducto);
+            return prod.getSerie();
+        }
+        return 0;
+    }
+
 
 
 }
