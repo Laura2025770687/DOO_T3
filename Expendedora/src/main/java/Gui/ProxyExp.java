@@ -172,6 +172,14 @@ public class ProxyExp {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error en la Compra", JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    /**
+     * Consume un producto seleccionado desde la interfaz gráfica según su índice.
+     * Intenta realizar el consumo, muestra un mensaje emergente con el resultado
+     * (éxito o advertencia si la ranura está vacía) y actualiza la vista del inventario.
+     *
+     * @param indice La posición o índice del producto en el inventario que se desea consumir.
+     */
     private void consumirDesdeGUI(int indice){
         try {
             ComAct.consumirProducto(indice);
