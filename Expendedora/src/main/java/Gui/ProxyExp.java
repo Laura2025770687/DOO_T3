@@ -112,7 +112,7 @@ public class ProxyExp {
                 consumirDesdeGUI(1);
                 break;
             case(99):
-                refillInvetario();
+                this.refillInvetario();
                 break;
         }
         repaintInventario();
@@ -262,16 +262,24 @@ public class ProxyExp {
     }
 
     /**
-     *
-     * @throws NumberFormatException
+     * Metodo que rellena el inventario una n cantidad
+     * Usado por PanelInventario
+     * @throws NumberFormatException cuando el valor ingresado no es valido
      */
     public void refillInvetario() throws NumberFormatException{
+        String Ref= "0";
+        int error = 0;
         try {
-            String CantExp = JOptionPane.showInputDialog("Cantidad de Productos:");
-            Integer.valueOf(CantExp);
+            error = 1;
+            Ref = JOptionPane.showInputDialog("Cantidad de Productos:");
+            Integer.valueOf(Ref);
         }
         catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            error = 0;
+        }
+        if (error==1){
+            Expen.fillDeposito(Integer.valueOf(Ref));
         }
     }
     public int identificarClase(Producto p) {

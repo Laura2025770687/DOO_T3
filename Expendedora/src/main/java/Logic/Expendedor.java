@@ -136,6 +136,20 @@ public class Expendedor {
         this.monedaEnRanura = null;
         this.depEntrega.agregar(p);
     }
+
+    /**
+     * Rellena cada deposito n veces
+     * @param n
+     */
+    public void fillDeposito(int n){
+        for(int i = 0; i < n; i++){
+            this.depCocaCola.addProducto(new CocaCola());
+            this.depSprite.addProducto(new Sprite());
+            this.depFanta.addProducto(new Fanta());
+            this.depSnickers.addProducto(new Snickers());
+            this.depSuper8s.addProducto(new Super8());
+        }
+    }
     /**
      * Retira el producto del depósito de entrega, dejándolo vacío para la siguiente compra.
      * @return El {@link Producto} comprado, o null si la ranura está vacía.
